@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'digital';
+  src: local('digital'),
+       url('digital.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'japon';
+  src: local('japon'),
+       url('japon.ttf') format('truetype');
+}
+
+body,html{ 
+  width: 100% !important;
+  height: 100% !important;
+  font-family: 'japon', arial;
+  background-color: #000000;
+  color:#fff;
+  font-size: 25px !important;
+  overflow: hidden;
+}
+
+h1, h2, h3, h6, h7 {font-weight: 100 !important; letter-spacing: 1px;}
+a {color: #A00; text-decoration: none}
+a:hover {cursor:pointer; color:#F00; text-decoration: underline}
+
+input[type="checkbox"]{
+  margin: none;
+}
+
+linea{clear:both;}
+ln-titulo{width: 50%; float:left; margin-top: 3px;}
+ln-valor{width: 50%; float:left; height:32px;}
+
+#timer{font-family: 'digital', sans-serif; font-size: 50px; cursor:pointer;}
+
+.modal{
+  color: #000;
+  margin-top: 50px;
+}
+.modal-dialog{top: 100px !important;}
+
+.btn-evento {
+  color: #fff;
+  border-color: #fff;
+  font-size: 24px;
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.btn-evento:hover {
+  color: #fff;
+}
+
+#sensu-AO { float: left; margin: 20px -60px 5px 18px;}
+#sensu-AKA { float: left; margin: -68px 0px 0px 110px}
+
+.form-check-input {position: relative !important;}
+
+.btn-modal{
+  border-color: #000;
+  font-size: 24px;
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.fullwidth {
+  width: 350px;
+  min-height: 10px; 
+  clear: both;
+  padding: 30px 7px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+
+.bg-ao {
+  background-color: #007bff !important;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.bg-aka {
+  background-color: #dc3545 !important;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.scoreboard-number {
+  font-size: 80px;
+  font-family: 'digital', sans-serif;
+  color: white;
+  margin: 0px;
+  text-align: center;
+}
+
+.border-ao {border: solid #007bff;}
+.border-aka {border: solid #dc3545;}
+
+.ao {color: #007bff}
+.aka {color: #dc3545}
+
+
+.table-title{
+  text-align: left;
+}
+
+.registros{
+  font-family: arial;
+  font-size: 12px;
+  text-align: left;
+}
