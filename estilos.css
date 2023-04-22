@@ -17,7 +17,7 @@ body,html{
   background-color: #000000;
   color:#fff;
   font-size: 25px !important;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 h1, h2, h3, h6, h7 {font-weight: 100 !important; letter-spacing: 1px;}
@@ -27,6 +27,8 @@ a:hover {cursor:pointer; color:#F00; text-decoration: underline}
 input[type="checkbox"]{
   margin: none;
 }
+
+.card-body{color:#000 !important;}
 
 linea{clear:both;}
 ln-titulo{width: 50%; float:left; margin-top: 3px;}
@@ -54,6 +56,15 @@ ln-valor{width: 50%; float:left; height:32px;}
 
 #sensu-AO { float: left; margin: 20px -60px 5px 18px;}
 #sensu-AKA { float: left; margin: -68px 0px 0px 110px}
+
+.col-chui{
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 30px;
+  max-width: none;
+}
+
 
 .form-check-input {position: relative !important;}
 

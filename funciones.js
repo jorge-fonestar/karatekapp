@@ -91,10 +91,10 @@ function GrabarEvento(Evento, Puntos){
   Minuto = $("#timer").html()
   Color = $("#Color").html()
 
-  if (Puntos === undefined){
+  if (Tipo === 'Amonestación'){
     // Amonestación
     if (Sensu!=false && $("#SensuOff").prop("checked")) {SensuSet(false);}
-    AmonestacionSet(Color);
+    AmonestacionSet(Color, Puntos);
 
   }else{
     // Puntos
@@ -120,8 +120,8 @@ function GrabarEvento(Evento, Puntos){
   $('.modal').modal('hide');
 }
 
-function AmonestacionSet(Color){
-  if (Color=='AO'){ AmonestacionesAO++; }else{ AmonestacionesAKA++; }
+function AmonestacionSet(Color, Chui){
+  if (Color=='AO'){ AmonestacionesAO = Chui; }else{ AmonestacionesAKA = Chui; }
 
   $(".bg-amonestacion").removeClass('bg-danger');
   $(".bg-amonestacion").addClass('bg-dark');
