@@ -29,6 +29,7 @@
 
     <!-- Incluimos los estilos personalizados -->
     <link rel="stylesheet" href="estilos.css">
+    <script src="combate.js"></script>
 
 </head>
 <body>

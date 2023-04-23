@@ -6,21 +6,6 @@ let Linea = 0;
 let AmonestacionesAO=0;
 let AmonestacionesAKA=0;
 
-document.addEventListener('touchmove', function(event) {
-  event.preventDefault();
-  event.stopPropagation();
-}, false);
-
-window.addEventListener('beforeunload', function(event) {
-  // Cancelar la descarga de la página
-  event.preventDefault();
-
-  // Mostrar un mensaje de confirmación personalizado
-  event.returnValue = '';
-  return '';
-});
-
-
 function startStopCountdown() {
   if (!countdownRunning) {
     start()
@@ -171,4 +156,8 @@ function eliminarLinea(Linea){
   if (confirm('Seguro que quieres eliminar esta linea?')){
     $('#linea-'+Linea).remove();
   }
+}
+
+function GrabarCombate(){
+  alert("Aun no funciona");
 }

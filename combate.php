@@ -1,4 +1,18 @@
-<script src="funciones.js"></script>
+<script>
+  document.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }, false);
+
+  window.addEventListener('beforeunload', function(event) {
+    // Cancelar la descarga de la página
+    event.preventDefault();
+
+    // Mostrar un mensaje de confirmación personalizado
+    event.returnValue = '';
+    return '';
+  });
+</script>
 
 <div id='Color' style="display: none;"></div>
 <div id='Tipo' style="display: none;"></div>
@@ -74,9 +88,9 @@
 
 <!-- Cronometro -->
 <div class="row">
-  <div class="col-3"> </div>
+  <div class="col-3"> <a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> </a> </div>
   <div class="col-6"> <div id='timer'>03:00</div> </div>
-  <div class="col-3"> </div>
+  <div class="col-3"> <div class="btn btn-evento" onclick="GrabarCombate()"> <span class="glyphicon glyphicon-download-alt"></span> </div> </div>
 </div>
 
 <div class="row">

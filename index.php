@@ -70,6 +70,8 @@ if (!$sesion->empezada()){
     include "pag_cabecera.php";
 
     if ($ACCESO=='COMBATE'){    include "combate.php"; }
+    elseif ($ACCESO=='TORNEOS'){    include "torneos.php"; }
+    elseif ($ACCESO=='HISTORIAL'){    include "historial.php"; }
     elseif ($ACCESO=='STATS'){  include "stats.php"; }
     else {                      include "menu.php"; }
 
