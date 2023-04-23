@@ -100,7 +100,7 @@ function GrabarEvento(Evento, Puntos){
       <div class="col-2">` + Puntos + `</div>
     </div>
   `;
-  $('.registros').append(newRow);
+  $('#registros').append(newRow);
 
   $('.modal').modal('hide');
 }
@@ -159,5 +159,20 @@ function eliminarLinea(Linea){
 }
 
 function GrabarCombate(){
-  alert("Aun no funciona");
+  // Crear el formulario invisible
+  var form = $("<form>", { method: 'post'});
+
+  // Agregar las variables al formulario
+  form.append($("<input>", { type: "text", name: "grabarCombate", value: '1' }));
+
+  form.append($("<input>", { type: "text", name: "IdTorneo", value: $("#IdTorneo").val() }));
+  form.append($("<input>", { type: "text", name: "Ronda", value: $("#Ronda").val() }));
+  form.append($("<input>", { type: "text", name: "NombreAO", value: $("#NombreAO").val() }));
+  form.append($("<input>", { type: "text", name: "NombreAKA", value: $("#NombreAKA").val() }));
+  
+  $("body").append(form);
+
+  // Enviamos
+  form.submit();
+
 }

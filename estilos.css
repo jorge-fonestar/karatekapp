@@ -10,6 +10,9 @@
        url('japon.ttf') format('truetype');
 }
 
+.left{float:left !important}
+.right{float:right !important}
+
 body,html{ 
   width: 100% !important;
   height: 100% !important;
@@ -24,9 +27,9 @@ h1, h2, h3, h6, h7 {font-weight: 100 !important; letter-spacing: 1px;}
 a {color: #A00; text-decoration: none}
 a:hover {cursor:pointer; color:#F00; text-decoration: underline}
 
-input[type="checkbox"]{
-  margin: none;
-}
+input[type="checkbox"] {margin: none;}
+.row input {width: 100% !important;;}
+
 
 .card-body{color:#000 !important;}
 
@@ -119,7 +122,7 @@ ln-valor{width: 50%; float:left; height:32px;}
   text-align: left;
 }
 
-.registros{
+#registros{
   font-family: arial;
   font-size: 12px;
   text-align: left;

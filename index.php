@@ -8,8 +8,6 @@ date_default_timezone_set("Europe/Madrid");
 extract($_REQUEST);
 
 include 'funciones.php';
-//include 'clases.php';
-
 
 db_conectar();
 $sesion = new sesion;
@@ -24,7 +22,7 @@ if ($ACCESO=='AJAX'){
 if ($ACCESO=='SALIR') {
     $sesion->desconectar();
     db_desconectar();
-    header('Location: /');
+    header('Location: '.$config->url);
     exit;
 }
 
