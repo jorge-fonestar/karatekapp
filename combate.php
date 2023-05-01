@@ -1,8 +1,41 @@
+<script src="combate.js"></script>
 <?php 
 if (isset($grabarCombate)){
-  echo "Grabando!";
-  print_r($_POST);
 
+  // Obtener las variables recibidas por POST
+  $idTorneo = $_POST['IdTorneo'];
+  $ronda = $_POST['Ronda'];
+  $nombreAO = $_POST['NombreAO'];
+  $nombreAKA = $_POST['NombreAKA'];
+  $puntosAO = $_POST['PuntosAO'];
+  $puntosAKA = $_POST['PuntosAKA'];
+  $sensu = $_POST['sensu'];
+  $registrosJSON = $_POST['RegistrosJSON'];
+  
+  // Convertir el registro JSON a un array de PHP
+  $registros = json_decode($registrosJSON, true);
+
+  // Crear la consulta INSERT
+  $sql = "INSERT INTO `COMBATES`(`ID`, `ID_TORNEO`, `RONDA`, `AO`, `AKA`, `PUNTOS_AO`, `PUNTOS_AKA`, `SENSU`, `HANTEI`) VALUES (NULL, '$idTorneo', '$ronda', '$nombreAO', '$nombreAKA', '$puntosAO', '$puntosAKA', '$sensu', '$hantei')";
+  ejecutar($sql);
+
+  $idCombate = mysqli_insert_id($db);
+  
+  // Crear una consulta INSERT para cada registro de la array
+  foreach ($registros as $registro) {
+    $minuto = $registro['minuto'];
+    $color = $registro['color'];
+    $tecnica = $registro['tecnica'];
+    $situacion = $registro['situacion'];
+
+    $sqlRegistro = "INSERT INTO `REGISTROS`(`ID`, `ID_COMBATE`, `MINUTO`, `COLOR`, `TECNICA`, `SITUACION`) VALUES (NULL, '$idCombate', '$minuto', '$color', '$tecnica', '$situacion')";
+    ejecutar($sqlRegistro);
+  }
+
+  echo "El combate ha sido registrado correctamente.";
+  ?>
+  <a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
+  <?php
 }else{
   ?>
   <script>
@@ -96,22 +129,23 @@ if (isset($grabarCombate)){
 
   <!-- Cronometro -->
   <div class="row">
-    <div class="col-3"> <a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> </a> </div>
+  <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMenos()">-</div> </div>
     <div class="col-6"> <div id='timer'>03:00</div> </div>
-    <div class="col-3"> <div class="btn btn-evento" onclick="GrabarCombate()"> <span class="glyphicon glyphicon-download-alt"></span> </div> </div>
+    <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMas()">+</div> </div>
   </div>
 
+  <!-- Opciones y Hajime/Yame -->
   <div class="row">
-    <div class="col-3"> <div class="btn btn-evento" onclick="CountdownMenos()">-</div> </div>
+    <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-menu-hamburger"></span> </div> </div>
     <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
-    <div class="col-3"> <div class="btn btn-evento" onclick="CountdownMas()">+</div> </div>
+    <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
   </div>
 
   <!-- Registros -->
   <div class="row">
     <div class="col">
       <div class="row table-title">
-        <div class="col-2">Minuto</div>
+        <div class="col-2">Min.</div>
         <div class="col-10">Tipo</div>
       </div>
       <div id="registros"></div>
@@ -169,6 +203,22 @@ if (isset($grabarCombate)){
     </div>
   </div>
 
+  <!-- Modal Menú -->
+  <div class="modal fade" id="modal-menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- Botones -->
+          <div class="btn btn-modal" onclick="GrabarCombate()">Grabar el combate</div> <br>
+          <a class="btn btn-modal" href="menu">Salir sin grabar</a> <br>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal DEFINICIÓN -->
   <div class="modal fade" id="modal-definicion" tabindex="-1" role="dialog" aria-hidden="true">
@@ -196,6 +246,9 @@ if (isset($grabarCombate)){
             <option value='7'>Ronda 7</option>
           </select><br><br>
 
+          Minutos<br>
+          <input id="timerIni" value='3'><br><br>
+
           Nombre AO<br>
           <input type='text' id='NombreAO' style='width:100%'><br><br>
 
@@ -205,7 +258,7 @@ if (isset($grabarCombate)){
         </div>
         <div class="modal-footer">
           <a class="btn btn-secondary left" href='menu'> Cancelar </a>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='setTimerMin()'>Aceptar</button>
         </div>
       </div>
     </div>

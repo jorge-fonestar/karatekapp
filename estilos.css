@@ -41,9 +41,17 @@ ln-valor{width: 50%; float:left; height:32px;}
 
 .modal{
   color: #000;
-  margin-top: 50px;
+  margin-top: 50px !important;
 }
 .modal-dialog{top: 100px !important;}
+
+.btn-transparente {
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 100%;
+  margin: 5px 0px;
+}
 
 .btn-evento {
   color: #fff;
@@ -109,6 +117,10 @@ ln-valor{width: 50%; float:left; height:32px;}
   color: white;
   margin: 0px;
   text-align: center;
+}
+
+.scoreboard-number-list {
+  font-size: 30px !important;
 }
 
 .border-ao {border: solid #007bff;}
