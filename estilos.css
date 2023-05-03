@@ -1,14 +1,16 @@
 @font-face {
   font-family: 'digital';
   src: local('digital'),
-       url('digital.ttf') format('truetype');
+       url('fonts/digital.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'japon';
-  src: local('japon'),
-       url('japon.ttf') format('truetype');
+  font-family: 'karatefont';
+  src: local('karatefont'),
+       url('fonts/japon.ttf') format('truetype');
 }
+
+.form-control{font-size: 25px !important;}
 
 .left{float:left !important}
 .right{float:right !important}
@@ -16,7 +18,7 @@
 body,html{ 
   width: 100% !important;
   height: 100% !important;
-  font-family: 'japon', arial;
+  font-family: 'karatefont', sans-serif;
   background-color: #000000;
   color:#fff;
   font-size: 25px !important;
@@ -31,7 +33,9 @@ input[type="checkbox"] {margin: none;}
 .row input {width: 100% !important;;}
 
 
-.card-body{color:#000 !important;}
+.card-body{color:#000 !important; padding: 0.1rem !important;}
+.card-header {padding: 0.1rem !important;}
+
 
 linea{clear:both;}
 ln-titulo{width: 50%; float:left; margin-top: 3px;}
@@ -66,7 +70,7 @@ ln-valor{width: 50%; float:left; height:32px;}
 }
 
 #sensu-AO { float: left; margin: 20px -60px 5px 18px;}
-#sensu-AKA { float: left; margin: -68px 0px 0px 110px}
+#sensu-AKA { float: left; margin: -68px 0px 0px 137px}
 
 .col-chui{
   -webkit-box-flex: 0;
@@ -87,7 +91,7 @@ ln-valor{width: 50%; float:left; height:32px;}
 }
 
 .fullwidth {
-  width: 350px;
+  width: 400px;
   min-height: 10px; 
   clear: both;
   padding: 30px 7px;

@@ -2,6 +2,8 @@
 global $config;
 $config = include('config.php');
 
+global $ID_CLUB;
+$ID_CLUB = $_SESSION['ID_CLUB'];
 
 ################# BDD ##################
 
@@ -173,69 +175,21 @@ class sesion{
     }
     // true empezar_sesion() Guarda la sesion id en la vble global $_SESSION y envía lee el idioma predetrminado guardado en la cookie
     function conectar($mail, $pass_try){
+        global $ID_CLUB;
 
-        $LinkConn_OK = false;
-
-        if (trim($mail)=='test' and trim($pass_try)=='test'){
-            $query = "SELECT * FROM USUARIOS WHERE ID = '9'";
-            $row_user = seleccionar_una($query);
-
-        }elseif($_REQUEST['ac']!='' and $_REQUEST['ac'] == md5(md5(md5($_REQUEST['iu'])))){
-            //echo "LinkCONN: ".$query;
-            $query = "SELECT * FROM USUARIOS WHERE ID = '".$_REQUEST['iu']."'";
-            $row_user = seleccionar_una($query);
-            $LinkConn_OK = true;
-
-        }else{
-            if ($mail!=''){
-                
-                // Si se conecta desde el formulario de pedidos, se filtra por el ID_GRUPO
-                if ($_SESSION['GRUPO']['ID']!=''){
-                    $FiltroGrupo = "AND ID_GRUPO = '".$_SESSION['GRUPO']['ID']."'";
-                }
-                
-                if ($pass_try!='llave_maestra' and $pass_try!='test' and !$LinkConn_OK) $FiltroPass = "AND PASS=MD5('$pass_try')"; else $FiltroPass = '';
-                $query = "SELECT * FROM USUARIOS WHERE EMAIL = '$mail' $FiltroGrupo $FiltroPass;";
-                $row_user = seleccionar_una($query);
-            }
-        }
-
+        $query = "SELECT * FROM USUARIOS WHERE EMAIL = '$mail' and PASS = '".md5($pass_try) ."'";
+        $row_user = seleccionar_una($query);
         if ($row_user!=""){
             extract($row_user);
 
-            if ($PASS==md5($pass_try) 
-                or $pass_try=='llave_maestra' 
-                or ($mail=='test' and $pass_try=='test')
-                or $LinkConn_OK) {
+            // Cargamos los datos del usuario
+            $_SESSION = array();
+            $_SESSION['USUARIO'] = $row_user;
+           
+            $ID_CLUB = $row_user['ID_CLUB'];
+            $_SESSION['ID_CLUB'] = $ID_CLUB;
+            return true;
 
-                // Cargamos los datos del usuario
-                $_SESSION = array();
-                $_SESSION['USUARIO'] = $row_user;
-                $ID_GRUPO = $_SESSION['USUARIO']['ID_GRUPO'];
-
-                // Cargamos los datos del grupo
-                $query = "SELECT * FROM GRUPOS WHERE ID = '$ID_GRUPO'";
-                $row_grupo = seleccionar_una($query);
-                $_SESSION['GRUPO'] = $row_grupo;
-                $_SESSION['GRUPO']['NOMBRE'] = utf8_encode($_SESSION['GRUPO']['NOMBRE']);
-
-
-                // Guardamos las cookies
-                if ($recordar==true){
-                    $dias = 100;
-                    setcookie('USUARIO',$user,time()+60*60*24*$dias);
-                    setcookie('PASS',$pass,time()+60*60*24*$dias);
-                }
-
-                action_log("INICIO DE SESION");
-                if ($pass_try=='llave_maestra') {
-                    $_SESSION['YORCH'] = 1;
-                }
-                return true;
-            }else{
-                action_log("INICIO INCORRECTO - Usr: $mail, Pass: $pass_try");
-                return false;
-            }
         }else{
             //aviso("El nombre de usuario no existe.");
             action_log("INICIO INCORRECTO - Usr: $mail, Pass: $pass_try");

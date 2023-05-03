@@ -1,16 +1,16 @@
 <?php 
 
 if (isset($LoadCombate)){
-    header('Content-type: application/json');
-    $SQLWEB="SELECT P.NOMBRE, P.PUBLICO FROM PRODUCTOS AS P WHERE P.NOMBRE != ''";
-    $dataQueryWeb = seleccionar_web($SQLWEB);  
+    //header('Content-type: application/json');
+    $SQLWEB="SELECT * FROM REGISTROS WHERE ID_COMBATE = '$LoadCombate'";
+    $dataQueryWeb = seleccionar($SQLWEB);  
     while ($rowweb = $dataQueryWeb->fetch_assoc()) {
         extract($rowweb);
-        $JSON['AO'] = $ITM_0;
-        $JSON['AKA'] = $DESCRIP_0;
-        $JSON['Lineas'] = $arrItm;
+        echo "<div class='row ".strtolower($COLOR)."'>
+                <div class='col-2'>$MINUTO</div>
+                <div class='col-10'>$TECNICA en $SITUACION</div>
+            </div>";
     }
-    echo json_encode($JSON);
 }
 
 ?>
