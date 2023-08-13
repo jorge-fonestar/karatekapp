@@ -10,19 +10,25 @@
        url('fonts/japon.ttf') format('truetype');
 }
 
-.form-control{font-size: 25px !important;}
-
-.left{float:left !important}
-.right{float:right !important}
 
 body,html{ 
   width: 100% !important;
   height: 100% !important;
-  font-family: 'karatefont', sans-serif;
+  font-family: sans-serif;
   background-color: #000000;
   color:#fff;
   font-size: 25px !important;
   /* overflow: hidden; */
+}
+
+.fullwidth {
+  max-width: 800px;
+  min-height: 10px; 
+  clear: both;
+  padding: 30px 7px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
 }
 
 h1, h2, h3, h6, h7 {font-weight: 100 !important; letter-spacing: 1px;}
@@ -32,6 +38,13 @@ a:hover {cursor:pointer; color:#F00; text-decoration: underline}
 input[type="checkbox"] {margin: none;}
 .row input {width: 100% !important;;}
 
+.form-control{font-size: 25px !important;}
+
+.left{float:left !important}
+.right{float:right !important}
+
+
+#combate{font-family: 'karatefont', sans-serif;}
 
 .card-body{color:#000 !important; padding: 0.1rem !important;}
 .card-header {padding: 0.1rem !important;}
@@ -70,7 +83,7 @@ ln-valor{width: 50%; float:left; height:32px;}
 }
 
 #sensu-AO { float: left; margin: 20px -60px 5px 18px;}
-#sensu-AKA { float: left; margin: -68px 0px 0px 137px}
+#sensu-AKA { float: left; margin: -68px 0px 0px 110px}
 
 .col-chui{
   -webkit-box-flex: 0;
@@ -88,16 +101,6 @@ ln-valor{width: 50%; float:left; height:32px;}
   font-size: 24px;
   width: 100%;
   margin: 5px 0px;
-}
-
-.fullwidth {
-  width: 400px;
-  min-height: 10px; 
-  clear: both;
-  padding: 30px 7px;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  text-align: center;
 }
 
 

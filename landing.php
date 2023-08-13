@@ -1,3 +1,5 @@
+
+
 <div id="login" class="">
   <h2 class="text-center">Acceso de entrenador</h2>
   <form method="post">
@@ -10,7 +12,7 @@
 </div>
 
 <br><br><br>
-
+<!-- 
 <div id="landing">
 <h1>KaratekApp</h1>
 <h2>KaratekApp es una aplicación web diseñada para registrar los combates de karate y sacar estadísticas del combate y de los torneos en los que participan los karatekas.</h2>
@@ -26,4 +28,4 @@
 
 <a href="#" class="btn btn-primary">Regístrate</a>
 <a href="#" class="btn btn-secondary">Inicia sesión</a>
-</div>
+</div> -->

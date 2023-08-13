@@ -58,102 +58,104 @@ if (isset($grabarCombate)){
   <div id='Color' style="display: none;"></div>
   <div id='Tipo' style="display: none;"></div>
 
-  <!-- Marcador -->
-  <div class="row">
-    <div class="col-6 border-ao">
-      AO
-    </div>
-    <div class="col-6 border-aka">
-      AKA
-    </div>
-  </div>
+  <div id='combate'>
 
-  <div class="row">
-    <div class="col-6 border-ao">
-      <span id="sensu-AO" class="badge bg-dark rounded-circle" onclick="SensuSet(false)">&nbsp;</span>
-      <h2 id='marcador-AO' class="scoreboard-number ao align-middle">0</h2>
-      <div class="row justify-content-center" onclick="NuevoEvento('Amonestación', 'AO')">
-        <div class="col-chui">
-          <span id="bga-AO-1" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+    <!-- Marcador -->
+    <div class="row">
+      <div class="col-6 border-ao">
+        AO
+      </div>
+      <div class="col-6 border-aka">
+        AKA
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 border-ao">
+        <span id="sensu-AO" class="badge bg-dark rounded-circle" onclick="SensuSet(false)">&nbsp;</span>
+        <h2 id='marcador-AO' class="scoreboard-number ao align-middle">0</h2>
+        <div class="row justify-content-center" onclick="NuevoEvento('Amonestación', 'AO')">
+          <div class="col-chui">
+            <span id="bga-AO-1" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AO-2" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AO-3" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AO-4" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AO-5" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
         </div>
-        <div class="col-chui">
-          <span id="bga-AO-2" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AO-3" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AO-4" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AO-5" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+      </div>
+      <div class="col-6 border-aka">
+        <h2 id='marcador-AKA' class="scoreboard-number aka align-middle">0</h2>
+        <span id="sensu-AKA" class="badge bg-dark rounded-circle" onclick="SensuSet(false)">&nbsp;</span>
+        <div class="row justify-content-center" onclick="NuevoEvento('Amonestación', 'AKA')">
+          <div class="col-chui">
+            <span id="bga-AKA-1" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AKA-2" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AKA-3" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AKA-4" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
+          <div class="col-chui">
+            <span id="bga-AKA-5" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-6 border-aka">
-      <h2 id='marcador-AKA' class="scoreboard-number aka align-middle">0</h2>
-      <span id="sensu-AKA" class="badge bg-dark rounded-circle" onclick="SensuSet(false)">&nbsp;</span>
-      <div class="row justify-content-center" onclick="NuevoEvento('Amonestación', 'AKA')">
-        <div class="col-chui">
-          <span id="bga-AKA-1" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
+
+
+
+    <!-- Botones -->
+    <div class="row">
+      <div class="col-6 border-ao">
+        <div class="btn btn-evento" onclick="NuevoEvento('Ataque', 'AO')">Ataque</div> <br>
+        <div class="btn btn-evento" onclick="NuevoEvento('Defensa', 'AO')">Defensa</div> <br>
+        <div class="btn btn-evento" onclick="NuevoEvento('Amonestación', 'AO')">Amonestación</div> <br>
+      </div>
+      <div class="col-6 border-aka">
+        <div class="btn btn-evento" onclick="NuevoEvento('Ataque', 'AKA')">Ataque</div> <br>
+        <div class="btn btn-evento" onclick="NuevoEvento('Defensa', 'AKA')">Defensa</div> <br>
+        <div class="btn btn-evento" onclick="NuevoEvento('Amonestación', 'AKA')">Amonestación</div> <br>
+      </div>
+    </div>
+
+    <!-- Cronometro -->
+    <div class="row">
+    <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMenos()">-</div> </div>
+      <div class="col-6"> <div id='timer'>03:00</div> </div>
+      <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMas()">+</div> </div>
+    </div>
+
+    <!-- Opciones y Hajime/Yame -->
+    <div class="row">
+      <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-menu-hamburger"></span> </div> </div>
+      <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
+      <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
+    </div>
+
+    <!-- Registros -->
+    <div class="row">
+      <div class="col">
+        <div class="row table-title">
+          <div class="col-2">Min.</div>
+          <div class="col-10">Tipo</div>
         </div>
-        <div class="col-chui">
-          <span id="bga-AKA-2" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AKA-3" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AKA-4" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
-        <div class="col-chui">
-          <span id="bga-AKA-5" class="bg-amonestacion badge bg-dark rounded-circle">&nbsp;</span>
-        </div>
+        <div id="registros"></div>
       </div>
     </div>
   </div>
-
-
-
-  <!-- Botones -->
-  <div class="row">
-    <div class="col-6 border-ao">
-      <div class="btn btn-evento" onclick="NuevoEvento('Ataque', 'AO')">Ataque</div> <br>
-      <div class="btn btn-evento" onclick="NuevoEvento('Defensa', 'AO')">Defensa</div> <br>
-      <div class="btn btn-evento" onclick="NuevoEvento('Amonestación', 'AO')">Amonestación</div> <br>
-    </div>
-    <div class="col-6 border-aka">
-      <div class="btn btn-evento" onclick="NuevoEvento('Ataque', 'AKA')">Ataque</div> <br>
-      <div class="btn btn-evento" onclick="NuevoEvento('Defensa', 'AKA')">Defensa</div> <br>
-      <div class="btn btn-evento" onclick="NuevoEvento('Amonestación', 'AKA')">Amonestación</div> <br>
-    </div>
-  </div>
-
-  <!-- Cronometro -->
-  <div class="row">
-  <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMenos()">-</div> </div>
-    <div class="col-6"> <div id='timer'>03:00</div> </div>
-    <div class="col-3"> <div class="btn btn-transparente" onclick="CountdownMas()">+</div> </div>
-  </div>
-
-  <!-- Opciones y Hajime/Yame -->
-  <div class="row">
-    <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-menu-hamburger"></span> </div> </div>
-    <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
-    <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
-  </div>
-
-  <!-- Registros -->
-  <div class="row">
-    <div class="col">
-      <div class="row table-title">
-        <div class="col-2">Min.</div>
-        <div class="col-10">Tipo</div>
-      </div>
-      <div id="registros"></div>
-    </div>
-  </div>
-
                                                           
 
   <!-- Modal Puntos -->

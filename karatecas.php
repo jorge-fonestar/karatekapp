@@ -1,7 +1,24 @@
-<h1>Karatecas </h1>
+<script src="karatekas.js"></script>
+<div class='row'>
+    <div class="col-xs-3"><a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-menu-hamburger"></span> </a></div>
+    <div class="col-xs-6"><h1>Karatecas</h1></div>
+    <div class="col-xs-3"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
+</div>
 
+<!-- Default dropleft button -->
+<div class="btn-group dropleft">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropleft
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+    <a class="dropdown-item" href="#">Estadísticas</a>
+    <a class="dropdown-item" href="#">Combates</a>
+    <a class="dropdown-item" href="#">Editar</a>
+    <a class="dropdown-item" href="#">Eliminar</a>
+  </div>
+</div>
 <?php
-
 if (isset($grabarKarateca)) {
   
     // Obtener las variables recibidas por POST
@@ -12,27 +29,49 @@ if (isset($grabarKarateca)) {
     $sexo = $_POST['sexo'];
     $cinturon = $_POST['cinturon'];
     
-    // Crear la consulta INSERT
-    $sql = "INSERT INTO `KARATECAS`(`ID`, `ID_CLUB`, `DNI`, `NOMBRE`, `FECHA_NACIMIENTO`, `TELEFONO`, `SEXO`, `CINTURON`) VALUES (NULL, '$ID_CLUB', '$dni', '$nombre', '$fechaNacimiento', '$telefono', '$sexo', '$cinturon')";
+    if ($ID=='NEW'){
+      $sql = "INSERT INTO `KARATECAS`(`ID`, `ID_CLUB`, `DNI`, `NOMBRE`, `FECHA_NACIMIENTO`, `TELEFONO`, `SEXO`, `CINTURON`) VALUES (NULL, '$ID_CLUB', '$dni', '$nombre', '$fechaNacimiento', '$telefono', '$sexo', '$cinturon')";
+      
+    }else{
+      $sql = "UPDATE `KARATECAS` 
+              set DNI='$dni', NOMBRE='$nombre', FECHA_NACIMIENTO='$fechaNacimiento', TELEFONO='$telefono', SEXO='$sexo', CINTURON='$cinturon' 
+              WHERE ID='$ID'";
+    }
     ejecutar($sql);
 }
 
-  
 
-$SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by ID";
-$data = seleccionar($SELECT);
-if ($data) {
-    while ($row = $data->fetch_assoc()){
-        extract($row);
-        echo "<option value='$ID'>$NOMBRE $CATEGORIA $PESO</option>";
-    }
-}
+// Listado de Karatekas registrados
 ?>
-
-
-<div class="btn btn-evento" onclick='$("#mdlKaratecas").modal("show");'> <span class="glyphicon glyphicon-plus"></span> Añadir karateca </div>
-<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
-
+<table class=''>
+  <?php
+  $SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by ID";
+  $data = seleccionar($SELECT);
+  if ($data) {
+      while ($row = $data->fetch_assoc()){
+          extract($row);
+          ?>
+          <div class='row' value='<?php echo $ID;?>'>
+              <div class='col-xs-10'><?php echo $NOMBRE;?></div>
+              <div class='col-xs-2'>
+                <div class="dropleft">
+                  <div class="btn btn-evento" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ...
+                  </div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $ID;?>">
+                    <a class="dropdown-item" href="#">Estadísticas</a>
+                    <a class="dropdown-item" href="#">Combates</a>
+                    <a class="dropdown-item" href="#">Editar</a>
+                    <a class="dropdown-item" href="#">Eliminar</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <?php
+      }
+  }
+  ?>
+</table>
 
 <!-- Modal KARATECAS -->
 <div class="modal fade" id="mdlKaratecas" tabindex="-1" role="dialog" aria-hidden="true">
@@ -46,6 +85,7 @@ if ($data) {
       </div>
       <form id='frmKaratecas' method="post">
         <div class="modal-body">
+            <input type="hidden" id="ID" name="ID" value='NEW'>
 
             <!-- Nombre -->
             <div class="form-group">

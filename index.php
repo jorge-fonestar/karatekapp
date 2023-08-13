@@ -1,4 +1,13 @@
 <?php 
+
+// Código para mostrar TODOS los errores:
+if (isset($_REQUEST['debug'])){
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    ini_set("display_startup_errors", 1);
+    echo "<h4 style='width:200px;margin:auto;'>DEBUG MODE:ON</h4>";
+}
+
 header("Cache-Control: post-check=0, pre-check=0",false);
 session_cache_limiter("must-revalidate"); 
 session_start();

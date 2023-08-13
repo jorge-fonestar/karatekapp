@@ -85,7 +85,7 @@ function GrabarEvento(Tecnica, Puntos){
 
   // Grabamos la linea
   if (Color=='AO') rgb = "007bff"; else rgb = "dc3545";
-  addLine(Color, Tecnica, Situacion)
+  addLine(Color, Tecnica, Situacion, Puntos)
   
 
   if (Situacion === 'Amonestación'){
@@ -93,7 +93,7 @@ function GrabarEvento(Tecnica, Puntos){
     AmonestacionSet(Color, Puntos);
 
     // Perdida de Sensu
-    if (Sensu!=false && $("#SensuOff").prop("checked")) {
+    if (Sensu==true && $("#SensuOff").prop("checked")) {
       SensuSet(false);
       addLine(Color, "Sensu perdido", Situacion);
     }
@@ -116,14 +116,16 @@ function GrabarEvento(Tecnica, Puntos){
   $('.modal').modal('hide');
 }
 
-function addLine(Color, Tecnica, Situacion){
+function addLine(Color, Tecnica, Situacion, Puntos){
   Linea++;
 
   Minuto = $("#timer").html()
   if (Color=='AO') rgb = "007bff"; else rgb = "dc3545";
 
+  if (Situacion === 'Amonestación') Puntos = 0;
+
   const newRow = `
-    <div id='linea-`+Linea+`' class="row" style="color:#`+rgb+` !important;" onclick='eliminarLinea(`+Linea+`)'>
+    <div id='linea-`+Linea+`' class="row" style="color:#`+rgb+` !important;" Puntos='`+Puntos+`' Color='`+Color+`'>
       <div class="col-2">` + Minuto + `</div>
       <div class="col-10">` + Tecnica + ` en ` + Situacion + `</div>
     </div>
@@ -180,6 +182,16 @@ function SensuSet(Cual){
 
 function eliminarLinea(){
   if (confirm('Seguro que quieres eliminar la última?')){
+    
+    // Restar Puntos
+    var PuntosLine = $('#linea-'+Linea).attr('Puntos');
+    if (PuntosLine>0){
+      var ColorLine = $('#linea-'+Linea).attr('Color');
+      Marcador = parseInt($('#marcador-'+ColorLine).html());
+      $('#marcador-'+ColorLine).html(Marcador - PuntosLine);
+    }
+    
+
     $('#linea-'+Linea).remove();
     Linea--;
   }
