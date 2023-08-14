@@ -1,7 +1,6 @@
 <script src="karatekas.js"></script>
 <div class='row'>
-    <div class="col-xs-3"><a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-menu-hamburger"></span> </a></div>
-    <div class="col-xs-6"><h1>Karatecas</h1></div>
+    <div class="col-xs-9"><h1>Karatecas</h1></div>
     <div class="col-xs-3"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
 </div>
 

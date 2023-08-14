@@ -1,0 +1,61 @@
+
+.fullwidth {
+    display: flex; /* Agrega esta propiedad para usar flexbox */
+    justify-content: center;
+    align-items: center;
+}
+
+
+#combate{font-family: 'karatefont', sans-serif; width:400px;}
+#timer{font-family: 'digital', sans-serif; font-size: 50px; cursor:pointer;}
+
+#sensu-AO { float: left; margin: 20px -60px 5px 18px;}
+#sensu-AKA { float: left; margin: -68px 0px 0px 110px}
+
+.col-chui{
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 30px;
+  max-width: none;
+}
+
+.bg-ao {
+  background-color: #007bff !important;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.bg-aka {
+  background-color: #dc3545 !important;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.scoreboard-number {
+  font-size: 80px;
+  font-family: 'digital', sans-serif;
+  color: white;
+  margin: 0px;
+  text-align: center;
+}
+
+.scoreboard-number-list {
+  font-size: 30px !important;
+}
+
+.border-ao {border: solid #007bff;}
+.border-aka {border: solid #dc3545;}
+
+
+.table-title{
+  text-align: left;
+}
+
+#registros{
+  font-family: arial;
+  font-size: 12px;
+  text-align: left;
+}

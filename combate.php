@@ -1,4 +1,8 @@
+
+<!-- Incluimos los estilos personalizados -->
+<link rel="stylesheet" href="combate.css">
 <script src="combate.js"></script>
+
 <?php 
 if (isset($grabarCombate)){
 

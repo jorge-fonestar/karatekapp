@@ -21,6 +21,41 @@ body,html{
   /* overflow: hidden; */
 }
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+}
+
+.navbar-nav {
+  float:right;
+  
+}
+
+.nav-item {
+  padding-top:10px;
+  
+}
+@media (min-width: 768px) {
+  /* Estilos para pantallas grandes */
+  .navbar .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .navbar .nav-link i {
+    margin-bottom: 0.25rem;
+    
+  }
+
+  .navbar .fas {
+    font-size: 24px;
+  }
+}
+
 .fullwidth {
   max-width: 800px;
   min-height: 10px; 
@@ -44,8 +79,6 @@ input[type="checkbox"] {margin: none;}
 .right{float:right !important}
 
 
-#combate{font-family: 'karatefont', sans-serif;}
-
 .card-body{color:#000 !important; padding: 0.1rem !important;}
 .card-header {padding: 0.1rem !important;}
 
@@ -53,8 +86,6 @@ input[type="checkbox"] {margin: none;}
 linea{clear:both;}
 ln-titulo{width: 50%; float:left; margin-top: 3px;}
 ln-valor{width: 50%; float:left; height:32px;}
-
-#timer{font-family: 'digital', sans-serif; font-size: 50px; cursor:pointer;}
 
 .modal{
   color: #000;
@@ -82,18 +113,6 @@ ln-valor{width: 50%; float:left; height:32px;}
   color: #fff;
 }
 
-#sensu-AO { float: left; margin: 20px -60px 5px 18px;}
-#sensu-AKA { float: left; margin: -68px 0px 0px 110px}
-
-.col-chui{
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 30px;
-  max-width: none;
-}
-
-
 .form-check-input {position: relative !important;}
 
 .btn-modal{
@@ -104,45 +123,8 @@ ln-valor{width: 50%; float:left; height:32px;}
 }
 
 
-.bg-ao {
-  background-color: #007bff !important;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
 
-.bg-aka {
-  background-color: #dc3545 !important;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
-
-.scoreboard-number {
-  font-size: 80px;
-  font-family: 'digital', sans-serif;
-  color: white;
-  margin: 0px;
-  text-align: center;
-}
-
-.scoreboard-number-list {
-  font-size: 30px !important;
-}
-
-.border-ao {border: solid #007bff;}
-.border-aka {border: solid #dc3545;}
 
 .ao {color: #007bff}
 .aka {color: #dc3545}
 
-
-.table-title{
-  text-align: left;
-}
-
-#registros{
-  font-family: arial;
-  font-size: 12px;
-  text-align: left;
-}

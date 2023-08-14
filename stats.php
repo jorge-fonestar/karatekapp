@@ -1,7 +1,4 @@
-<h1>Estadísticas </h1>
+<h1>Perfil de cuenta </h1>
 
 
-
-
-
-<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
+<a class="btn btn-evento" href='salir'> <i class="fa-solid fa-arrow-right-from-bracket"></i> Desconectar </a>

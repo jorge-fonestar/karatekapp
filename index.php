@@ -36,8 +36,6 @@ if ($ACCESO=='SALIR') {
 }
 
 
-include "pag_cabecera.php";
-
 ### COMPROBACION DE SESION INICIADA ###
 
 // ¿Intento de login?
@@ -49,20 +47,22 @@ if (isset($user_mail) && isset($user_pass) && $user_mail!=''){
 }
 
 if (!$sesion->empezada()){
-    include "landing.php";
+    include "login.php";
     
 }else{
+
+    
+include "pag_cabecera.php";
 
     if ($ACCESO=='COMBATE'){    include "combate.php"; }
     elseif ($ACCESO=='TORNEOS'){    include "torneos.php"; }
     elseif ($ACCESO=='HISTORIAL'){    include "historial.php"; }
     elseif ($ACCESO=='KARATECAS'){  include "karatecas.php"; }
     elseif ($ACCESO=='STATS'){  include "stats.php"; }
-    else {                      include "menu.php"; }
-
-    
-}
+    else {                      include "landing.php"; }
 
 include "pag_pie.php";
+}
+
 db_desconectar();
 ?>

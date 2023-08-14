@@ -1,19 +1,3 @@
-
-
-<div id="login" class="">
-  <h2 class="text-center">Acceso de entrenador</h2>
-  <form method="post">
-    <input type="text" class="form-control" id="user_mail" name="user_mail" placeholder="Usuario" required>
-    <input type="password" class="form-control" id="user_pass" name="user_pass" placeholder="Introduce tu clave" required>
-    <div class="form-group text-center">
-      <button type="submit" class="btn btn-primary btn-block">Acceder</button>
-    </div>
-  </form>
-</div>
-
-<br><br><br>
-<!-- 
-<div id="landing">
 <h1>KaratekApp</h1>
 <h2>KaratekApp es una aplicación web diseñada para registrar los combates de karate y sacar estadísticas del combate y de los torneos en los que participan los karatekas.</h2>
 
@@ -26,6 +10,4 @@
     <li>Seguridad: la aplicación cuenta con medidas de seguridad para garantizar la protección de los datos de los usuarios.</li>
 </ul>
 
-<a href="#" class="btn btn-primary">Regístrate</a>
-<a href="#" class="btn btn-secondary">Inicia sesión</a>
-</div> -->
+</div>
