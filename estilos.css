@@ -19,29 +19,13 @@ body,html{
   color:#fff;
   /* overflow: hidden; */
 }
-
 .navbar {
-  position: sticky;
+  justify-content: flex-end;
   border-radius: 0px;
-  top: 0;
-  z-index: 1000;
-  
-}
-
-.navbar-nav {
-  float:right;
-}
-
-.nav-item {
-  padding-top:10px;
-  
+  margin-bottom: 0px !important;
 }
 @media (min-width: 768px) {
   /* Estilos para pantallas grandes */
-
-  .navbar{
-    height:60px;
-  }
 
   .navbar .nav-link {
     display: flex;
@@ -63,7 +47,7 @@ body,html{
   max-width: 800px;
   min-height: 10px; 
   clear: both;
-  padding: 30px 7px;
+  padding: 5px;
   margin-left: auto !important;
   margin-right: auto !important;
   text-align: center;
