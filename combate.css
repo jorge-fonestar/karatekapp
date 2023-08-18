@@ -34,21 +34,8 @@
   padding: 10px;
 }
 
-.scoreboard-number {
-  font-size: 80px;
-  font-family: 'digital', sans-serif;
-  color: white;
-  margin: 0px;
-  text-align: center;
-}
-
-.scoreboard-number-list {
-  font-size: 30px !important;
-}
-
 .border-ao {border: solid #007bff;}
 .border-aka {border: solid #dc3545;}
-
 
 .table-title{
   text-align: left;

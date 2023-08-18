@@ -1,22 +1,9 @@
 <script src="karatekas.js"></script>
 <div class='row'>
-    <div class="col-xs-9"><h1>Karatecas</h1></div>
-    <div class="col-xs-3"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
+    <div class="col-xs-10"><h1>Karatecas</h1></div>
+    <div class="col-xs-2"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
 </div>
 
-<!-- Default dropleft button -->
-<div class="btn-group dropleft">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropleft
-  </button>
-  <div class="dropdown-menu">
-    <!-- Dropdown menu links -->
-    <a class="dropdown-item" href="#">Estadísticas</a>
-    <a class="dropdown-item" href="#">Combates</a>
-    <a class="dropdown-item" href="#">Editar</a>
-    <a class="dropdown-item" href="#">Eliminar</a>
-  </div>
-</div>
 <?php
 if (isset($grabarKarateca)) {
   
@@ -44,23 +31,23 @@ if (isset($grabarKarateca)) {
 ?>
 <table class=''>
   <?php
-  $SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by ID";
+  $SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by NOMBRE";
   $data = seleccionar($SELECT);
   if ($data) {
       while ($row = $data->fetch_assoc()){
           extract($row);
           ?>
-          <div class='row' value='<?php echo $ID;?>'>
+          <div class='row linea-karateka' value='<?php echo $ID;?>'>
               <div class='col-xs-10'><?php echo $NOMBRE;?></div>
               <div class='col-xs-2'>
                 <div class="dropleft">
-                  <div class="btn btn-evento" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="btn btn-evento right" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ...
                   </div>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $ID;?>">
-                    <a class="dropdown-item" href="#">Estadísticas</a>
-                    <a class="dropdown-item" href="#">Combates</a>
-                    <a class="dropdown-item" href="#">Editar</a>
+                    <a class="dropdown-item" href="stats/<?php echo $ID;?>">Estadísticas</a>
+                    <a class="dropdown-item" href="/<?php echo $ID;?>">Combates</a>
+                    <a class="dropdown-item" href="#" onclick="editar_karateka()">Editar</a>
                     <a class="dropdown-item" href="#">Eliminar</a>
                   </div>
                 </div>

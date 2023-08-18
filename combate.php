@@ -38,7 +38,7 @@ if (isset($grabarCombate)){
 
   echo "El combate ha sido registrado correctamente.";
   ?>
-  <a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
+  <a class="btn btn-evento" href='historial'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
   <?php
 }else{
   ?>
@@ -144,7 +144,7 @@ if (isset($grabarCombate)){
 
     <!-- Opciones y Hajime/Yame -->
     <div class="row">
-      <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-menu-hamburger"></span> </div> </div>
+      <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-ok-sign"></span> </div> </div>
       <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
       <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
     </div>

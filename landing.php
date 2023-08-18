@@ -1,13 +1,21 @@
-<h1>KaratekApp</h1>
-<h2>KaratekApp es una aplicación web diseñada para registrar los combates de karate y sacar estadísticas del combate y de los torneos en los que participan los karatekas.</h2>
+<h2>Bienvenido a KaratekApp</h2>
 
-<h3>Características</h3>
-<ul>
-    <li>Registro de combates: permite registrar los combates de karate con información como fecha, lugar, resultado, participantes y tipo de competición.</li>
-    <li>Estadísticas de combate: la aplicación proporciona estadísticas detalladas de cada combate, incluyendo información sobre el número de golpes, bloqueos, patadas, etc.</li>
-    <li>Estadísticas de torneo: también se pueden obtener estadísticas de torneo, incluyendo información sobre el rendimiento de cada karateka, el número de victorias, derrotas, empates, etc.</li>
-    <li>Fácil de usar: la aplicación es fácil de usar y está diseñada para que cualquier persona, incluso sin experiencia en tecnología, pueda utilizarla.</li>
-    <li>Seguridad: la aplicación cuenta con medidas de seguridad para garantizar la protección de los datos de los usuarios.</li>
-</ul>
-
+<p>Registra y analiza tus combates de karate de manera eficiente</p>
+<div class="row">
+    <div class="col-md-4">
+    <h4>Registro de Combates</h4>
+    <p>Registra tus combates de karate con información detallada</p>
+    </div>
+    <div class="col-md-4">
+    <h4>Estadísticas Detalladas</h4>
+    <p>Obtén estadísticas detalladas de tus combates y rendimiento en torneos</p>
+    </div>
+    <div class="col-md-4">
+    <h4>Fácil de Usar</h4>
+    <p>La aplicación es intuitiva y diseñada para todos los niveles de experiencia</p>
+    </div>
+</div>
+<div class="mt-4">
+    <a href="#" class="btn btn-primary">Comenzar</a>
+    <a href="#" class="btn btn-link">Cerrar Sesión</a>
 </div>

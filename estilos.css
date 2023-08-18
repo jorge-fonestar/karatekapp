@@ -17,12 +17,12 @@ body,html{
   font-family: sans-serif;
   background-color: #000000;
   color:#fff;
-  font-size: 25px !important;
   /* overflow: hidden; */
 }
 
 .navbar {
   position: sticky;
+  border-radius: 0px;
   top: 0;
   z-index: 1000;
   
@@ -30,7 +30,6 @@ body,html{
 
 .navbar-nav {
   float:right;
-  
 }
 
 .nav-item {
@@ -39,6 +38,11 @@ body,html{
 }
 @media (min-width: 768px) {
   /* Estilos para pantallas grandes */
+
+  .navbar{
+    height:60px;
+  }
+
   .navbar .nav-link {
     display: flex;
     flex-direction: column;
@@ -48,11 +52,10 @@ body,html{
   
   .navbar .nav-link i {
     margin-bottom: 0.25rem;
-    
   }
 
   .navbar .fas {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -80,10 +83,11 @@ input[type="checkbox"] {margin: none;}
 
 
 .card-body{color:#000 !important; padding: 0.1rem !important;}
-.card-header {padding: 0.1rem !important;}
+.card-header {
+  padding: 0.1rem !important;
+  font-size: 22px;
+}
 
-
-linea{clear:both;}
 ln-titulo{width: 50%; float:left; margin-top: 3px;}
 ln-valor{width: 50%; float:left; height:32px;}
 
@@ -104,8 +108,6 @@ ln-valor{width: 50%; float:left; height:32px;}
 .btn-evento {
   color: #fff;
   border-color: #fff;
-  font-size: 24px;
-  width: 100%;
   margin: 5px 0px;
 }
 
@@ -123,8 +125,29 @@ ln-valor{width: 50%; float:left; height:32px;}
 }
 
 
-
+.left{float:left !important}
+.right{float:right !important}
 
 .ao {color: #007bff}
 .aka {color: #dc3545}
 
+
+.scoreboard-number {
+  font-size: 80px;
+  font-family: 'digital', sans-serif;
+  margin: 0px;
+  text-align: center;
+}
+
+.scoreboard-number-list {
+  font-size: 30px !important;
+}
+
+.linea-karateka{
+  width: 100%;
+  margin: 10px 0px;
+  cursor: pointer;
+  font-size: 22px;
+  text-align: left;
+  border-bottom: solid thin #fff;
+}
