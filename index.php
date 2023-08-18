@@ -59,6 +59,7 @@ include "pag_cabecera.php";
     elseif ($ACCESO=='HISTORIAL'){    include "historial.php"; }
     elseif ($ACCESO=='KARATECAS'){  include "karatecas.php"; }
     elseif ($ACCESO=='STATS'){  include "stats.php"; }
+    elseif ($ACCESO=='PERFIL'){  include "perfil.php"; }
     else {                      include "landing.php"; }
 
 include "pag_pie.php";

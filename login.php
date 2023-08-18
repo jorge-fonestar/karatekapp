@@ -8,8 +8,8 @@
   <title>Landing Page</title>
 </head>
 <body>
-  <div class="container">
-    <div class="row justify-content-center align-items-center min-vh-100">
+  <div style="padding: 50px;">
+    <div class="row justify-content-center align-items-center">
       <div id="login" class="col-md-4">
         <h2 class="text-center">Acceso de entrenador</h2>
         <form method="post">

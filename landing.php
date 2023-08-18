@@ -15,7 +15,3 @@
     <p>La aplicación es intuitiva y diseñada para todos los niveles de experiencia</p>
     </div>
 </div>
-<div class="mt-4">
-    <a href="#" class="btn btn-primary">Comenzar</a>
-    <a href="#" class="btn btn-link">Cerrar Sesión</a>
-</div>
