@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto right">
       <li class="nav-item"><a class="nav-link" href="combate"><i class="fas fa-fist-raised"></i> Nuevo Combate</a></li>
       <li class="nav-item"><a class="nav-link" href="historial"><i class="fas fa-database"></i> Combates grabados</a></li>
       <li class="nav-item"><a class="nav-link" href="karatecas"><i class="fas fa-user-ninja"></i> Karatecas</a></li>
