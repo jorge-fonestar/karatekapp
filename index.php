@@ -89,12 +89,13 @@ if (!$sesion->empezada()){
     </head>
     <body>
 
-        <?php include "UI/menu.php";?>
         <div id='karatecas' class='content'><?php include "UI/karatecas.php";?></div>
         <div id='historial' class='content'><?php include "UI/historial.php";?></div>
         <div id='combate' class='content'><?php include "UI/combate.php";?></div>
         <div id='torneos' class='content'><?php include "UI/torneos.php";?></div>
         <div id='perfil' class='content'><?php include "UI/perfil.php";?></div>
+
+        <?php include "UI/menu.php";?>
 
     </body>
     </html>

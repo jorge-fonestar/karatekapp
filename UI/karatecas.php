@@ -32,20 +32,15 @@ if ($data) {
     while ($row = $data->fetch_assoc()){
         extract($row);
         ?>
-        <div class='row linea-karateka' value='<?php echo $ID;?>'>
-            <div class='col-xs-10'><?php echo $NOMBRE;?></div>
-            <div class='col-xs-2'>
-              <div class="dropleft">
-                <div class="btn btn-evento right" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ...
-                </div>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $ID;?>">
-                  <a class="dropdown-item" href="stats/<?php echo $ID;?>">Estadísticas</a>
-                  <a class="dropdown-item" href="/<?php echo $ID;?>">Combates</a>
-                  <a class="dropdown-item" href="#" onclick="editar_karateka()">Editar</a>
-                  <a class="dropdown-item" href="#">Eliminar</a>
-                </div>
-              </div>
+        <div class="card mb-3 bg-dark text-white" style='width: 100%; cursor:pointer;'>
+            <div class="card-header">
+                <span style='font-size:16px;'><?php echo $NOMBRE;?></span>
+            </div>
+            <div class="card-body text-light">
+              <div class="btn btn-evento" onclick="editar_karateka()"><i class="fas fa-chart-bar"></i> Estadísticas</div>
+              <div class="btn btn-evento" onclick="editar_karateka()"><i class="fas fa-fist-raised"></i> Combates</div>
+              <div class="btn btn-evento" onclick="editar_karateka()"><i class="fas fa-pencil-alt"></i> Editar</div>
+              <div class="btn btn-evento" onclick="editar_karateka()"><i class="fas fa-trash"></i> Eliminar</div>
             </div>
         </div>
         <?php

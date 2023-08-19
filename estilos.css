@@ -39,6 +39,15 @@ body,html{
     display: none;
   }
 
+  .navbar {
+    position: fixed;
+    border: none;
+    border-radius: 0px;
+    top: 0 !important;
+    width: 100%;
+  }
+
+
   .navbar .nav-link {
     display: flex;
     flex-direction: column;
