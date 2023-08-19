@@ -6,6 +6,13 @@ let Linea = 0;
 let AmonestacionesAO=0;
 let AmonestacionesAKA=0;
 
+
+function ComenzarCombate(){
+  setTimerMin();
+  //TODO: Restablecer todos los datos
+  nav('combate', null, 'flex');
+}
+
 function startStopCountdown() {
   if (!countdownRunning) {
     start()
@@ -57,7 +64,6 @@ function setTimerMin(){
   remainingTime = parseInt($("#timerIni").val()) * 60;
   PintarTimer()
 }
-
 
 function NuevoEvento(Tipo, Color){
   stop();

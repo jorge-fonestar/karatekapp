@@ -1,12 +1,15 @@
 
-.fullwidth {
-    display: flex; /* Agrega esta propiedad para usar flexbox */
-    justify-content: center;
-    align-items: center;
+
+#combate {
+  justify-content: center;
+  align-items: center;
 }
 
+#scoreboard {
+  font-family: 'karatefont', sans-serif;
+  width: 400px;
+}
 
-#combate{font-family: 'karatefont', sans-serif; width:400px;}
 #timer{font-family: 'digital', sans-serif; font-size: 50px; cursor:pointer;}
 
 #sensu-AO { float: left; margin: 20px -60px 5px 18px;}

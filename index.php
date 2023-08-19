@@ -81,7 +81,6 @@ if (!$sesion->empezada()){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
         <!-- Incluimos los estilos personalizados -->
         <link rel="stylesheet" href="estilos.css">
         <script src="funciones.js"></script>
@@ -89,20 +88,40 @@ if (!$sesion->empezada()){
     </head>
     <body>
 
+        <!-- Barra Loading -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-icon"></div>
+        </div>
+
+        <!-- Contenedor para Mensajes -->
+        <div id="Alert" class="alert fixed-top fade" onclick="$('#Alert').removeClass('show');">
+            <div id="x-de-pega">X</div>
+            <div id="AlertContainer"> Mensaje a mostrar en el Aviso.</div>
+        </div>
+
+        <!-- Contenidos -->
         <div id='karatecas' class='content'><?php include "UI/karatecas.php";?></div>
+            <div id='karateca' class='content'><?php include "UI/karateca.php";?></div>
+
         <div id='historial' class='content'><?php include "UI/historial.php";?></div>
-        <div id='combate' class='content'><?php include "UI/combate.php";?></div>
+            <div id='historial-search' class='content'><?php include "UI/historial_search.php";?></div>
+        
+        <div id='combate-def' class='content'><?php include "UI/combate_def.php";?></div>
+            <div id='combate' class='content'><?php include "UI/combate.php";?></div>
+
         <div id='torneos' class='content'><?php include "UI/torneos.php";?></div>
+
         <div id='perfil' class='content'><?php include "UI/perfil.php";?></div>
 
         <?php include "UI/menu.php";?>
 
+
+        <!-- VUE -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="vue.js"></script>
     </body>
     </html>
-
-
     <?php
-
 }
 
 db_desconectar();

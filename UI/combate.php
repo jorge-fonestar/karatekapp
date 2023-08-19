@@ -3,66 +3,10 @@
 <link rel="stylesheet" href="UI/combate.css">
 <script src="UI/combate.js"></script>
 
-<?php 
-if (isset($grabarCombate)){
+<div id='Color' style="display: none;"></div>
+<div id='Tipo' style="display: none;"></div>
 
-  // Obtener las variables recibidas por POST
-  $idTorneo = $_POST['IdTorneo'];
-  $ronda = $_POST['Ronda'];
-  $nombreAO = $_POST['NombreAO'];
-  $nombreAKA = $_POST['NombreAKA'];
-  $puntosAO = $_POST['PuntosAO'];
-  $puntosAKA = $_POST['PuntosAKA'];
-  $sensu = $_POST['sensu'];
-  $registrosJSON = $_POST['RegistrosJSON'];
-  
-  // Convertir el registro JSON a un array de PHP
-  $registros = json_decode($registrosJSON, true);
-
-  // Crear la consulta INSERT
-  $sql = "INSERT INTO `COMBATES`(`ID`, `ID_CLUB`, `ID_TORNEO`, `RONDA`, `AO`, `AKA`, `PUNTOS_AO`, `PUNTOS_AKA`, `SENSU`, `HANTEI`) VALUES (NULL, '$ID_CLUB', '$idTorneo', '$ronda', '$nombreAO', '$nombreAKA', '$puntosAO', '$puntosAKA', '$sensu', '$hantei')";
-  ejecutar($sql);
-
-  $idCombate = mysqli_insert_id($db);
-  
-  // Crear una consulta INSERT para cada registro de la array
-  foreach ($registros as $registro) {
-    $minuto = $registro['minuto'];
-    $color = $registro['color'];
-    $tecnica = $registro['tecnica'];
-    $situacion = $registro['situacion'];
-
-    $sqlRegistro = "INSERT INTO `REGISTROS`(`ID`, `ID_COMBATE`, `MINUTO`, `COLOR`, `TECNICA`, `SITUACION`) VALUES (NULL, '$idCombate', '$minuto', '$color', '$tecnica', '$situacion')";
-    ejecutar($sqlRegistro);
-  }
-
-  echo "El combate ha sido registrado correctamente.";
-  ?>
-  <a class="btn btn-evento" href='historial'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
-  <?php
-}else{
-  ?>
-  <script>
-    document.addEventListener('touchmove', function(event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }, false);
-
-    window.addEventListener('beforeunload', function(event) {
-      // Cancelar la descarga de la página
-      event.preventDefault();
-
-      // Mostrar un mensaje de confirmación personalizado
-      event.returnValue = '';
-      return '';
-    });
-
-  </script>
-
-  <div id='Color' style="display: none;"></div>
-  <div id='Tipo' style="display: none;"></div>
-
-  <div id='combate'>
+  <div id='scoreboard'>
 
     <!-- Marcador -->
     <div class="row">
@@ -286,7 +230,4 @@ if (isset($grabarCombate)){
       </div>
     </div>
   </div>
-
   <!-- <script>$("#modal-definicion").modal("show");</script> -->
-
-<?php }?>
