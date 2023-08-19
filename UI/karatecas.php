@@ -1,7 +1,5 @@
-<div class='row'>
-    <div class="col-xs-10"><h1>Karatecas</h1></div>
-    <div class="col-xs-2"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
-</div>
+<h1>Karatecas</h1>
+<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-plus"></span> Nuevo Karateca </a>
 
 <?php
 if (isset($grabarKarateca)) {

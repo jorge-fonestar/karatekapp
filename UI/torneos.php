@@ -1,4 +1,5 @@
 <h1>Torneos</h1>
+<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-plus"></span> Nuevo Torneo </a>
 
 <?php
 $SELECT = "SELECT * FROM TORNEOS WHERE ID_CLUB='$ID_CLUB' order by ID";
@@ -10,5 +11,3 @@ if ($data) {
     }
 }
 ?>
-<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-plus"></span> Nuevo Torneo </a>
-<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>

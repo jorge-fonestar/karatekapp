@@ -78,7 +78,6 @@ body,html{
   
   .fixed-bottom-menu .nav-link{
     color:grey;
-    cursor:pointer;
   }
 
   .nav-selected{
@@ -88,6 +87,10 @@ body,html{
     border-radius: 10px;
     color:red !important;
   }
+}
+
+.nav-link{
+  cursor:pointer;
 }
 
 

@@ -1,4 +1,6 @@
 <h1>Estadísticas </h1>
+<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
+
 <div id="accordion">
   <div class="card">
     <div class="card-header" id="heading1">
@@ -113,3 +115,5 @@
         </div>
       </div>
     </div>
+
+    

@@ -1,7 +1,6 @@
-<div class='row'>
-    <div class="col-xs-9"><h1>Combates</h1></div>
-    <div class="col-xs-3"><div class="btn btn-evento" onclick='$("#mdlBuscar").modal("show");'> <span class="glyphicon glyphicon-search"></span> </div></div>
-</div>
+<h1>Combates</h1>
+<a class="btn btn-evento" href='menu'> <span class="glyphicon glyphicon-search"></span> Buscar </a>
+
 <?php
 if ($FechaIni!='') $FILTROS .= " AND FECHA > '$FechaIni'";
 if ($FechaFin!='') $FILTROS .= " AND FECHA < '$FechaFin'";

@@ -5,11 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto right">
-      <li class="nav-item"><a class="nav-link" href="combate"><i class="fas fa-fist-raised"></i> Nuevo Combate</a></li>
-      <li class="nav-item"><a class="nav-link" href="historial"><i class="fas fa-database"></i> Combates grabados</a></li>
-      <li class="nav-item"><a class="nav-link" href="karatecas"><i class="fas fa-user-ninja"></i> Karatecas</a></li>
-      <li class="nav-item"><a class="nav-link" href="torneos"><i class="fas fa-people-group"></i> Torneos</a></li>
-      <li class="nav-item"><a class="nav-link" href="perfil"><i class="fas fa-user"></i> Perfil</a></li>
+      <li class="nav-item"><div class="nav-link" onclick="nav('combate', this)"><i class="fas fa-fist-raised"></i> Nuevo Combate</div></li>
+      <li class="nav-item"><div class="nav-link" onclick="nav('historial', this)"><i class="fas fa-database"></i> Combates grabados</div></li>
+      <li class="nav-item"><div class="nav-link" onclick="nav('karatecas', this)"><i class="fas fa-user-ninja"></i> Karatecas</div></li>
+      <li class="nav-item"><div class="nav-link" onclick="nav('torneos', this)"><i class="fas fa-people-group"></i> Torneos</div></li>
+      <li class="nav-item"><div class="nav-link" onclick="nav('perfil', this)"><i class="fas fa-user"></i> Perfil</div></li>
     </ul>
   </div>
 </nav>
