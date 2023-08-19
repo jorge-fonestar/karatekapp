@@ -1,7 +1,7 @@
 
 <!-- Incluimos los estilos personalizados -->
-<link rel="stylesheet" href="combate.css">
-<script src="combate.js"></script>
+<link rel="stylesheet" href="UI/combate.css">
+<script src="UI/combate.js"></script>
 
 <?php 
 if (isset($grabarCombate)){
@@ -287,6 +287,6 @@ if (isset($grabarCombate)){
     </div>
   </div>
 
-  <script>$("#modal-definicion").modal("show");</script>
+  <!-- <script>$("#modal-definicion").modal("show");</script> -->
 
 <?php }?>

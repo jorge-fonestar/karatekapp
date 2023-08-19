@@ -16,9 +16,9 @@
 
 
 <div class="fixed-bottom-menu">
-  <a class="nav-link" href="karatecas"><i class="fas fa-user-ninja"></i> </a>
-  <a class="nav-link" href="historial"><i class="fas fa-database"></i> </a>
-  <a class="nav-link nav-selected" href="combate"><i class="fas fa-fist-raised"></i> </a>
-  <a class="nav-link" href="torneos"><i class="fas fa-people-group"></i> </a>
-  <a class="nav-link" href="perfil"><i class="fas fa-user"></i> </a>
+  <div class="nav-link" onclick="nav('karatecas', this)"><i class="fas fa-user-ninja"></i></div>
+  <div class="nav-link nav-selected" onclick="nav('historial', this)"><i class="fas fa-database"></i></div>
+  <div class="nav-link" onclick="nav('combate', this)"><i class="fas fa-fist-raised"></i></div>
+  <div class="nav-link" onclick="nav('torneos', this)"><i class="fas fa-people-group"></i></div>
+  <div class="nav-link" onclick="nav('perfil', this)"><i class="fas fa-user"></i></div>
 </div>

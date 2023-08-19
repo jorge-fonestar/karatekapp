@@ -1,4 +1,3 @@
-<script src="karatekas.js"></script>
 <div class='row'>
     <div class="col-xs-10"><h1>Karatecas</h1></div>
     <div class="col-xs-2"><div class="btn btn-evento right" onclick="EditKarateka('NEW')"> <span class="glyphicon glyphicon-plus"></span> </div></div>
@@ -28,36 +27,36 @@ if (isset($grabarKarateca)) {
 
 
 // Listado de Karatekas registrados
-?>
-<table class=''>
-  <?php
-  $SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by NOMBRE";
-  $data = seleccionar($SELECT);
-  if ($data) {
-      while ($row = $data->fetch_assoc()){
-          extract($row);
-          ?>
-          <div class='row linea-karateka' value='<?php echo $ID;?>'>
-              <div class='col-xs-10'><?php echo $NOMBRE;?></div>
-              <div class='col-xs-2'>
-                <div class="dropleft">
-                  <div class="btn btn-evento right" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ...
-                  </div>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $ID;?>">
-                    <a class="dropdown-item" href="stats/<?php echo $ID;?>">Estadísticas</a>
-                    <a class="dropdown-item" href="/<?php echo $ID;?>">Combates</a>
-                    <a class="dropdown-item" href="#" onclick="editar_karateka()">Editar</a>
-                    <a class="dropdown-item" href="#">Eliminar</a>
-                  </div>
+
+$SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by NOMBRE";
+$data = seleccionar($SELECT);
+if ($data) {
+    while ($row = $data->fetch_assoc()){
+        extract($row);
+        ?>
+        <div class='row linea-karateka' value='<?php echo $ID;?>'>
+            <div class='col-xs-10'><?php echo $NOMBRE;?></div>
+            <div class='col-xs-2'>
+              <div class="dropleft">
+                <div class="btn btn-evento right" type="button" id="dropdownMenuButton<?php echo $ID;?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  ...
+                </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $ID;?>">
+                  <a class="dropdown-item" href="stats/<?php echo $ID;?>">Estadísticas</a>
+                  <a class="dropdown-item" href="/<?php echo $ID;?>">Combates</a>
+                  <a class="dropdown-item" href="#" onclick="editar_karateka()">Editar</a>
+                  <a class="dropdown-item" href="#">Eliminar</a>
                 </div>
               </div>
-          </div>
-          <?php
-      }
-  }
-  ?>
-</table>
+            </div>
+        </div>
+        <?php
+    }
+}
+?>
+
+
+
 
 <!-- Modal KARATECAS -->
 <div class="modal fade" id="mdlKaratecas" tabindex="-1" role="dialog" aria-hidden="true">
@@ -69,7 +68,7 @@ if (isset($grabarKarateca)) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id='frmKaratecas' method="post">
+      
         <div class="modal-body">
             <input type="hidden" id="ID" name="ID" value='NEW'>
 
@@ -125,7 +124,7 @@ if (isset($grabarKarateca)) {
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             <input type="submit" class="btn btn-primary" name="grabarKarateca" value='Guardar'/>
         </div>
-      </form>
     </div>
   </div>
+</div>
 </div>

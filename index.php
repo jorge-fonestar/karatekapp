@@ -47,22 +47,61 @@ if (isset($user_mail) && isset($user_pass) && $user_mail!=''){
 }
 
 if (!$sesion->empezada()){
-    include "login.php";
+    include "UI/login.php";
     
 }else{
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
 
-    
-include "pag_cabecera.php";
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9" />
 
-    if ($ACCESO=='COMBATE'){    include "combate.php"; }
-    elseif ($ACCESO=='TORNEOS'){    include "torneos.php"; }
-    elseif ($ACCESO=='HISTORIAL'){    include "historial.php"; }
-    elseif ($ACCESO=='KARATECAS'){  include "karatecas.php"; }
-    elseif ($ACCESO=='STATS'){  include "stats.php"; }
-    elseif ($ACCESO=='PERFIL'){  include "perfil.php"; }
-    else {                      include "landing.php"; }
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="400" />
+        <meta name="robots" content="none" />
 
-include "pag_pie.php";
+        <meta charset="UTF-8">
+        <title>Karatekapp</title>
+        <link rel="shortcut icon" href="fabicon.ico" type="image/ico">
+        <script src="https://kit.fontawesome.com/21eec419c8.js" crossorigin="anonymous"></script>
+        
+        <!-- Incluimos los estilos de Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <!-- JQuery -->   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+        
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+        <!-- Incluimos los estilos personalizados -->
+        <link rel="stylesheet" href="estilos.css">
+        <script src="funciones.js"></script>
+
+    </head>
+    <body>
+
+        <?php include "UI/menu.php";?>
+        <div id='karatecas' class='content'><?php include "UI/karatecas.php";?></div>
+        <div id='historial' class='content'><?php include "UI/historial.php";?></div>
+        <div id='combate' class='content'><?php include "UI/combate.php";?></div>
+        <div id='torneos' class='content'><?php include "UI/torneos.php";?></div>
+        <div id='perfil' class='content'><?php include "UI/perfil.php";?></div>
+
+    </body>
+    </html>
+
+
+    <?php
+
 }
 
 db_desconectar();
