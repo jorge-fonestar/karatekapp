@@ -81,7 +81,7 @@ function NuevoEvento(Tipo, Color){
   
 }
 
-function Menu(){
+function SalirDelCombate(){
   $('#modal-menu').modal('show');
 }
 
@@ -249,6 +249,8 @@ function GrabarCombate(){
     };
     
     registros.push(registro);
+
+    //nav('combates');
   });
 
   var registrosJSON = JSON.stringify(registros);

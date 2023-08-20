@@ -88,7 +88,7 @@
 
     <!-- Opciones y Hajime/Yame -->
     <div class="row">
-      <div class="col-3"> <div class="btn btn-evento" onclick="Menu()"> <span class="glyphicon glyphicon-ok-sign"></span> </div> </div>
+      <div class="col-3"> <div class="btn btn-evento" onclick="SalirDelCombate()"> <span class="glyphicon glyphicon-ok-sign"></span> </div> </div>
       <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
       <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
     </div>
@@ -162,7 +162,7 @@
         <div class="modal-body">
           <!-- Botones -->
           <div class="btn btn-modal" onclick="GrabarCombate()">Grabar el combate</div> <br>
-          <a class="btn btn-modal" href="menu">Salir sin grabar</a> <br>
+          <div class="btn btn-modal" onclick="nav('historial', $('#mnu-hist'))" data-dismiss="modal">Salir sin grabar</div> <br>
           
         </div>
         <div class="modal-footer">

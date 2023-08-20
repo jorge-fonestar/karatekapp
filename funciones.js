@@ -21,6 +21,16 @@ window.addEventListener('beforeunload', function(event) {
 
 function nav(Target, obj = null, display = 'block'){
 
+  // Si entramos en COMBATE quitamos los menus, y si no los mostramos
+  if (Target=="combate"){
+    $("#mnuTop").addClass("hidden");
+    $("#mnuBottom").addClass("hidden");
+  }else{
+    $("#mnuTop").removeClass("hidden");
+    $("#mnuBottom").removeClass("hidden");
+  }
+
+
   // Si viene click de un objeto, marcamos el menú
   if (obj !== null) {
     $(".nav-link").removeClass('nav-selected');
