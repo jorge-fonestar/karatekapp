@@ -1,5 +1,5 @@
 <h1>Combates</h1>
-<div class="btn btn-evento" onclick='nav("historial-search")'> <span class="glyphicon glyphicon-search"></span> Buscar </div>
+<div class="btn btn-light" onclick='nav("historial-search")'> <span class="glyphicon glyphicon-search"></span> Buscar </div><br><br>
 
 <?php
 if ($FechaIni!='') $FILTROS .= " AND FECHA > '$FechaIni'";

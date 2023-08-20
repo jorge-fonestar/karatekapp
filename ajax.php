@@ -42,7 +42,7 @@ function grabarCombate(){
 
   echo "El combate ha sido registrado correctamente.";
   ?>
-  <a class="btn btn-evento" href='historial'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
+  <a class="btn btn-light" href='historial'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
   <?php
 }
 

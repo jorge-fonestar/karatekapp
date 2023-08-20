@@ -1,5 +1,5 @@
 <h1>Buscar combates</h1>
-<div class="btn btn-evento" onclick='nav("historial")'> <span class="glyphicon glyphicon-chevron-left"></span> Atras </div><br><br>
+<div class="btn btn-light" onclick='nav("historial")'> <span class="glyphicon glyphicon-chevron-left"></span> Atras </div><br><br>
 
 
 Nombre karateca<br>
@@ -47,4 +47,4 @@ Ronda
     <option value='7'>Ronda 7</option>
 </select><br><br>
 
-<div class="btn btn-evento" onclick='BuscarCombates();'><span class="glyphicon glyphicon-search"></span> Buscar</div>
+<div class="btn btn-light" onclick='BuscarCombates();'><span class="glyphicon glyphicon-search"></span> Buscar</div>

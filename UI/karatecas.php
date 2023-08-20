@@ -1,5 +1,5 @@
 <h1>Karatecas</h1>
-<div class="btn btn-evento" onclick='LoadKarateca("NEW")'> <span class="glyphicon glyphicon-plus"></span> Nuevo Karateca </div>
+<div class="btn btn-light" onclick='LoadKarateca("NEW")'> <span class="glyphicon glyphicon-plus"></span> Nuevo Karateca </div><br><br>
 
 <?php
 
