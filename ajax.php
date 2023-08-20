@@ -1,11 +1,57 @@
 <?php 
-if (isset($LoadKarateca)) LoadKarateca($LoadKarateca);
-if (isset($grabarKarateca)) grabarKarateca();
 
+// Combates
+if (isset($loadHistorial)) loadHistorial($filtros);
 if (isset($LoadCombate)) LoadCombate($LoadCombate);
+
 if (isset($grabarCombate)) grabarCombate();
 
 
+
+// Karatekas
+if (isset($ListadoKaratecas)) ListadoKaratecas();
+if (isset($LoadKarateca)) LoadKarateca($LoadKarateca);
+if (isset($grabarKarateca)) grabarKarateca();
+
+
+function loadHistorial($filtros=''){
+  global $ID_CLUB;
+  extract($filtros);
+  if ($Nombre!='') $FILTROS .= " AND (AO like '%$Nombre%' or AKA like '%$Nombre%')";
+  if ($FechaIni!='') $FILTROS .= " AND FECHA > '$FechaIni'";
+  if ($FechaFin!='') $FILTROS .= " AND FECHA < '$FechaFin'";
+  if ($IdTorneo!='') $FILTROS .= " AND ID_TORNEO = '$IdTorneo'";
+  if ($Ronda!='') $FILTROS .= " AND RONDA = '$Ronda'";
+  
+  $DATA = array();
+  $SELECT = "SELECT * FROM COMBATES WHERE ID_CLUB='$ID_CLUB' $FILTROS";
+  $data = seleccionar($SELECT);
+  if ($data){
+    while ($row = $data->fetch_assoc()){
+      $row = array_map('utf8_encode', $row);
+
+      $timestamp = strtotime($row['FECHA']);
+      $row['FECHA'] = date("Y-m-d", $timestamp);
+      $row['HORA'] = date("H:i:s", $timestamp);
+      
+      $DATA[] = $row;
+    }
+  }
+  echoJSON($DATA);
+}
+
+function ListadoKaratecas(){
+  global $ID_CLUB;
+  $SELECT = "SELECT * FROM KARATECAS WHERE ID_CLUB='$ID_CLUB' order by NOMBRE";
+  $data = seleccionar($SELECT);
+  if ($data) {
+    while ($row = $data->fetch_assoc()){
+      $row = array_map('utf8_encode', $row);
+      $DATA[] = $row;
+    }
+  }
+  echoJSON($DATA);
+}
 
 function grabarCombate(){
   global $db;

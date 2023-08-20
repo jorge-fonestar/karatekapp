@@ -74,6 +74,17 @@ function ejecutar($sql, $Ejecutar=1, $Mostrar=0){
     return true;
 }
 
+function echoJSON($DATA){
+    $JSON = json_encode($DATA);
+    if ($JSON === false) {
+      http_response_code(404);
+      $err = json_last_error_msg();
+
+    } else {
+      echo $JSON;
+    }
+  }
+
 function action_log($texto, $ID_GRUPO=''){
     if ($ID_GRUPO=='') $ID_GRUPO = $_SESSION['USUARIO']['ID_GRUPO'];
     if (isset($_SESSION['USUARIO']['NOMBRE'])) $usuario = " - USER: ".$_SESSION['USUARIO']['NOMBRE'];
@@ -203,6 +214,8 @@ class sesion{
         setcookie('USUARIO','',time()+60*60*24*50);
         setcookie('PASS','',time()+60*60*24*50);
     }
+
+    
 }
 
 ?>

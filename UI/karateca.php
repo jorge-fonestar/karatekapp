@@ -1,5 +1,5 @@
 <h1>Ficha de Karateca</h1>
-<div class="btn btn-light" onclick='nav("karatecas")'> <span class="glyphicon glyphicon-chevron-left"></span> Atras </div><br><br>
+<div class="btn btn-light" onclick='loadKaratecas(); nav("karatecas")'> <span class="glyphicon glyphicon-chevron-left"></span> Atras </div><br><br>
 
 <!-- 
   Datos

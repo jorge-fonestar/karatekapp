@@ -1,6 +1,8 @@
 $(document).ready(function(){
-  $("#historial").css('display', 'block');
+  nav("historial");
   
+  loadHistorial();
+  loadKaratecas();
 });
 
 document.addEventListener('touchmove', function(event) {
@@ -79,57 +81,59 @@ function LoadingOff() {
 
 
 
+/////////      Historial      /////////
 
-
-
-
-
-
-
-
-
-// Acciones de la aplicación
-
-
-function LoadKarateca(ID){
-  LoadingOn();
-
-  if (ID=='NEW'){
-    // Campos Vacíos
-    karateca.nombre = "";
-    karateca.fecha_nacimiento = "";
-    karateca.dni = "";
-    karateca.telefono = "";
-    karateca.sexo = "";
-    karateca.cinturon = "";
+function loadHistorial(){
+  LoadingOn()
+  var FILTROS = {
+    Nombre: $("#srchNombre").val(),
+    FechaIni: $("#srchFechaIni").val(),
+    FechaFin: $("#srchFechaFin").val(),
+    IdTorneo: $("#srchIdTorneo").val(),
+    Ronda: $("#srchRonda").val(),
+  };
+  $.post("AJAX", {loadHistorial: true, filtros: FILTROS}, function (response) {
+    var json = JSON.parse(response);
+    if (json){
+        // Actualizar los valores en la instancia de Vue
+        historial.combates = json;
+    }
     LoadingOff();
-    nav('karateca');
+  }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
 
-  }else{
+}
 
-    $.post("AJAX", {LoadKarateca: ID}, function (response) {
+////////////////////////////////////////
+
+
+
+
+
+
+
+
+/////////      Karatekas      /////////
+
+  function loadKaratecas(){
+      $.post("AJAX", {ListadoKaratecas: true}, function (response) {
       var json = JSON.parse(response);
       if (json){
-        // Actualizar los valores en la instancia de Vue
-        karateca.nombre = json.NOMBRE;
-        karateca.fecha_nacimiento = json.FECHA_NACIMIENTO;
-        karateca.dni = json.DNI;
-        karateca.telefono = json.TELEFONO;
-        karateca.sexo = json.SEXO;
-        karateca.cinturon = json.CINTURON;
-        nav('karateca');
+          // Actualizar los valores en la instancia de Vue
+          karatecas.karatecas = json;
       }
+      }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
+  }
+  
+  function NewKarateca(){
+      // Campos Vacíos
+      karateca.nombre = "";
+      karateca.fecha_nacimiento = "";
+      karateca.dni = "";
+      karateca.telefono = "";
+      karateca.sexo = "";
+      karateca.cinturon = "";
       LoadingOff();
-    }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
-  } 
-}
+      nav('karateca');
+  }
 
-
-function LoadCombate(ID){
-  LoadingOn();
-  $.post("AJAX", {LoadCombate:ID}, function(r){
-    LoadingOff();
-    $("#divDetalles").html(r);
-    $("#mdlDetalles").modal("show");
-  });
-}
+////////////////////////////////////////

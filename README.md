@@ -96,3 +96,33 @@ https://www.youtube.com/live/NbxUTYO1ISA?feature=share&t=3902
 
 
 ## Graficas de evolución 
+
+
+
+## Sobre el Nombre
+* User
+a que te suena "Senseids"?
+
+* ChatGPT
+"Senseids" podría sonar como una combinación de las palabras "Sensei" y "aids" (que significa "ayudas" en inglés). La combinación de estas dos palabras podría sugerir una plataforma o recurso destinado a proporcionar ayudas, recursos o información para los senseis en su enseñanza y entrenamiento en el ámbito del karate u otras disciplinas similares. Sin embargo, es importante tener en cuenta que la percepción de un nombre puede variar según el contexto y la audiencia.
+
+* User
+que tal suena en ingles, italiano y francés?
+
+* ChatGPT
+En inglés, "Senseids" suena bastante claro y coherente, ya que la palabra "sensei" es ampliamente reconocida en la cultura popular y se utiliza en inglés para referirse a un instructor o maestro en artes marciales.
+
+En italiano, "Senseids" podría sonar un poco más abstracto debido a la combinación de palabras en inglés y la terminación "-ids", que no es típica en el idioma italiano. Sin embargo, aún podría entenderse como una referencia a la figura del "sensei" en las artes marciales.
+
+En francés, "Senseids" también podría ser comprendido, especialmente por personas familiarizadas con el término "sensei" y su significado. Sin embargo, la pronunciación podría variar y la combinación con "ids" podría ser menos intuitiva en francés.
+
+En resumen, en inglés "Senseids" tiene sentido y claridad, mientras que en italiano y francés podría ser entendido pero con algunas posibles diferencias en la percepción debido a las particularidades lingüísticas.
+
+* User
+que te suena mejor? 
+senseids
+senseaids
+sensaids?
+
+* ChatGPT
+Entre las opciones que has proporcionado, "Senseids" suena más claro y coherente en relación con la palabra "sensei" y su asociación con las artes marciales. Las otras opciones ("Senseaids" y "Sensaids") podrían resultar un poco confusas o menos intuitivas en cuanto a su conexión con la figura del instructor de artes marciales. Por lo tanto, "Senseids" parece ser la opción más adecuada en este contexto.

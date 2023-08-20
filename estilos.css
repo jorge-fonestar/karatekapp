@@ -207,6 +207,7 @@ ln-valor{width: 50%; float:left; height:32px;}
 
 .left{float:left !important}
 .right{float:right !important}
+.clickable{cursor:pointer !important;}
 
 .ao {color: #007bff}
 .aka {color: #dc3545}

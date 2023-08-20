@@ -3,24 +3,24 @@
 
 
 Nombre karateca<br>
-<input type='text' name='Nombre' style='width:100%'><br><br>
+<input id='srchNombre' type='text' name='Nombre' style='width:100%'><br><br>
 
 
 Fechas entre<br>
 <div class="row">
     <div class="col-xs-5">
-        <input type='date' name='FechaIni' style='width:100%'><br><br>
+        <input type='date' id='srchFechaIni' name='FechaIni' style='width:100%'><br><br>
     </div>
     <div class="col-xs-2">
         y
     </div>
     <div class="col-xs-5">
-        <input type='date' name='FechaFin' style='width:100%'><br><br>
+        <input type='date' id='srchFechaFin' name='FechaFin' style='width:100%'><br><br>
     </div>
 </div>
 
 Torneo<br>
-<select name='IdTorneo' style='width:100%'>
+<select id='srchIdTorneo' name='IdTorneo' style='width:100%'>
     <option value=''>- Cualquiera -</option>
     <option value='0'>ENTRENAMIENTO / NO OFICIAL</option>
     <?php
@@ -36,7 +36,7 @@ Torneo<br>
 </select><br><br>
 
 Ronda
-<select name='Ronda' style='width:100%'>
+<select id='srchRonda' name='Ronda' style='width:100%'>
     <option value=''>- Cualquiera -</option>
     <option value='1'>Ronda 1</option>
     <option value='2'>Ronda 2</option>
@@ -47,4 +47,4 @@ Ronda
     <option value='7'>Ronda 7</option>
 </select><br><br>
 
-<div class="btn btn-light" onclick='BuscarCombates();'><span class="glyphicon glyphicon-search"></span> Buscar</div>
+<div class="btn btn-light" onclick='loadHistorial(); nav("historial")'><span class="glyphicon glyphicon-search"></span> Buscar</div>
