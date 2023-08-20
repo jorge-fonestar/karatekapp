@@ -1,5 +1,5 @@
 <h1>Buscar combates</h1>
-<div class="btn btn-evento" onclick='nav("historial")'> <span class="glyphicon glyphicon-chevron-left"></span> Cancelar </div><br><br>
+<div class="btn btn-evento" onclick='nav("historial")'> <span class="glyphicon glyphicon-chevron-left"></span> Atras </div><br><br>
 
 
 Nombre karateca<br>

@@ -31,20 +31,6 @@ function nav(Target, obj = null, display = 'block'){
   $("#"+Target).css('display', display);
 }
 
-function ajax(EndPoint, DATA) {
-  return $.post(EndPoint, DATA)
-    .done(function (response) {
-      // Retornar la respuesta en caso de éxito
-      return response;
-    })
-    .fail(function (xhr, status, error) {
-      // Mostrar un modal con el mensaje de error
-      Alerta(xhr.status + " " + error, 5000, 'error');
-      // Retornar FALSE en caso de error
-      return false;
-    });
-}
-
 
 function Alerta(message, duration, tipo='info') {
   const Alert = $('#Alert');
@@ -57,9 +43,9 @@ function Alerta(message, duration, tipo='info') {
   Alert.addClass('alert-'+tipo);
 
   AlertContainer.html(message);
-  Alert.addClass('show');
+  Alert.css('display', 'flex');
   setTimeout(function() {
-    Alert.removeClass('show');
+    Alert.css('display', 'none');
   }, duration);
 }
 
@@ -110,18 +96,21 @@ function LoadKarateca(ID){
     nav('karateca');
 
   }else{
-    var json = ajax("karateca", {id: ID});
-    if (json){
-      // Actualizar los valores en la instancia de Vue
-      karateca.nombre = json.nombre;
-      karateca.fecha_nacimiento = json.fecha_nacimiento;
-      karateca.dni = json.dni;
-      karateca.telefono = json.telefono;
-      karateca.sexo = json.sexo;
-      karateca.cinturon = json.cinturon;
-      nav('karateca');
-    }
-    LoadingOff();
+
+    $.post("AJAX", {LoadKarateca: ID}, function (response) {
+      var json = JSON.parse(response);
+      if (json){
+        // Actualizar los valores en la instancia de Vue
+        karateca.nombre = json.NOMBRE;
+        karateca.fecha_nacimiento = json.FECHA_NACIMIENTO;
+        karateca.dni = json.DNI;
+        karateca.telefono = json.TELEFONO;
+        karateca.sexo = json.SEXO;
+        karateca.cinturon = json.CINTURON;
+        nav('karateca');
+      }
+      LoadingOff();
+    }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
   } 
 }
 
