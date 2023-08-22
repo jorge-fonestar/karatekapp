@@ -38,9 +38,9 @@ Torneo<br>
 
 
 Nombre AO<br>
-<input type='text' id='NombreAO' style='width:100%'><br><br>
+<input type='text' id='NombreAO' class='autocomplete-karateca' style='width:100%'><br><br>
 
 Nombre AKA<br>
-<input type='text' id='NombreAKA' style='width:100%'><br><br>
+<input type='text' id='NombreAKA' class='autocomplete-karateca' style='width:100%'><br><br>
 
 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='ComenzarCombate()'>¡Comenzar!</button>

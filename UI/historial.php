@@ -1,5 +1,5 @@
 <h1>Combates</h1>
-<div class="btn btn-light" onclick='nav("historial-search")'> <span class="glyphicon glyphicon-search"></span> Buscar </div><br><br>
+<div class="btn btn-light right" onclick='nav("historial-search")'> <span class="glyphicon glyphicon-search"></span> Buscar </div><br><br>
 
   <!-- Utiliza v-for para iterar sobre la lista de combates -->
   <div class="card mb-3 bg-dark text-white clickable" v-for="combate in combates" :key="combate.id" @click="loadCombate(combate.ID)">

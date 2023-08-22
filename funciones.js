@@ -1,9 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function() {
+
+  // Cargamos el Autocomplete
+  $(".autocomplete-karateca").on("change input focusout", function() {
+    validarNombreKarateca($(this));
+  });
+
+  $(".autocomplete-karateca").autocomplete({
+    source: nombresKaratecas,
+    select: function(event, ui) {
+      validarNombreKarateca($(this));
+    }
+  });
+
   nav("historial");
-  
-  loadHistorial();
-  loadKaratecas();
 });
+
+function validarNombreKarateca($input) {
+  var valorInput = $input.val();
+
+  if (nombresKaratecas.indexOf(valorInput) === -1) {
+    $input.removeClass("valid-name");
+  } else {
+    $input.addClass("valid-name");
+  }
+}
+
 
 document.addEventListener('touchmove', function(event) {
   event.preventDefault();
@@ -20,8 +41,20 @@ window.addEventListener('beforeunload', function(event) {
 });
 
 
-
 function nav(Target, obj = null, display = 'block'){
+
+  if (karateca.Cambios) {
+    const userConfirmed = window.confirm("Hay cambios no guardados. ¿Estás seguro de que quieres avanzar?");
+  
+    if (userConfirmed) {
+      karateca.Cambios = false;
+
+    } else {
+      return;
+    }
+  }
+  
+
 
   // Si entramos en COMBATE quitamos los menus, y si no los mostramos
   if (Target=="combate"){
@@ -113,6 +146,7 @@ function loadHistorial(){
 
 
 /////////      Karatekas      /////////
+  var nombresKaratecas = ["Iván", "Carlos", "María", "Juan", "Luis"];
 
   function loadKaratecas(){
       $.post("AJAX", {ListadoKaratecas: true}, function (response) {
@@ -120,20 +154,20 @@ function loadHistorial(){
       if (json){
           // Actualizar los valores en la instancia de Vue
           karatecas.karatecas = json;
+
+          // Actualizar el autocompletado
+          nombresKaratecas = [];
+          for (let i = 0; i < json.length; i++) {
+            nombresKaratecas.push(json[i].NOMBRE); // Asegúrate de ajustar esta línea para obtener el nombre correctamente
+          }
+         
+          $(".autocomplete-karateca").autocomplete({
+            source: nombresKaratecas
+          });
       }
       }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
   }
   
-  function NewKarateca(){
-      // Campos Vacíos
-      karateca.nombre = "";
-      karateca.fecha_nacimiento = "";
-      karateca.dni = "";
-      karateca.telefono = "";
-      karateca.sexo = "";
-      karateca.cinturon = "";
-      LoadingOff();
-      nav('karateca');
-  }
+  
 
 ////////////////////////////////////////

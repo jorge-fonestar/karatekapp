@@ -4,14 +4,18 @@
 if (isset($loadHistorial)) loadHistorial($filtros);
 if (isset($LoadCombate)) LoadCombate($LoadCombate);
 
-if (isset($grabarCombate)) grabarCombate();
+if (isset($GrabarCombate)) GrabarCombate($Data);
 
 
 
 // Karatekas
 if (isset($ListadoKaratecas)) ListadoKaratecas();
 if (isset($LoadKarateca)) LoadKarateca($LoadKarateca);
-if (isset($grabarKarateca)) grabarKarateca();
+if (isset($GrabarKarateca)) GrabarKarateca($Data);
+
+
+
+
 
 
 function loadHistorial($filtros=''){
@@ -24,7 +28,7 @@ function loadHistorial($filtros=''){
   if ($Ronda!='') $FILTROS .= " AND RONDA = '$Ronda'";
   
   $DATA = array();
-  $SELECT = "SELECT * FROM COMBATES WHERE ID_CLUB='$ID_CLUB' $FILTROS";
+  $SELECT = "SELECT * FROM COMBATES WHERE ID_CLUB='$ID_CLUB' $FILTROS ORDER BY FECHA DESC";
   $data = seleccionar($SELECT);
   if ($data){
     while ($row = $data->fetch_assoc()){
@@ -53,25 +57,25 @@ function ListadoKaratecas(){
   echoJSON($DATA);
 }
 
-function grabarCombate(){
+function GrabarCombate($Data){
   global $db;
+  global $ID_CLUB;
+
+  $Ok = 1;
 
   // Obtener las variables recibidas por POST
-  $idTorneo = $_POST['IdTorneo'];
-  $ronda = $_POST['Ronda'];
-  $nombreAO = $_POST['NombreAO'];
-  $nombreAKA = $_POST['NombreAKA'];
-  $puntosAO = $_POST['PuntosAO'];
-  $puntosAKA = $_POST['PuntosAKA'];
-  $sensu = $_POST['sensu'];
-  $registrosJSON = $_POST['RegistrosJSON'];
+  $idTorneo = $Data['IdTorneo'];
+  $ronda = $Data['Ronda'];
+  $nombreAO = $Data['NombreAO'];
+  $nombreAKA = $Data['NombreAKA'];
+  $puntosAO = $Data['PuntosAO'];
+  $puntosAKA = $Data['PuntosAKA'];
+  $sensu = $Data['Sensu'];
+  $registros = $Data['Registros'];
   
-  // Convertir el registro JSON a un array de PHP
-  $registros = json_decode($registrosJSON, true);
-
   // Crear la consulta INSERT
   $sql = "INSERT INTO `COMBATES`(`ID`, `ID_CLUB`, `ID_TORNEO`, `RONDA`, `AO`, `AKA`, `PUNTOS_AO`, `PUNTOS_AKA`, `SENSU`, `HANTEI`) VALUES (NULL, '$ID_CLUB', '$idTorneo', '$ronda', '$nombreAO', '$nombreAKA', '$puntosAO', '$puntosAKA', '$sensu', '$hantei')";
-  ejecutar($sql);
+  $Ok *= ejecutar($sql);
 
   $idCombate = mysqli_insert_id($db);
   
@@ -83,10 +87,10 @@ function grabarCombate(){
     $situacion = $registro['situacion'];
 
     $sqlRegistro = "INSERT INTO `REGISTROS`(`ID`, `ID_COMBATE`, `MINUTO`, `COLOR`, `TECNICA`, `SITUACION`) VALUES (NULL, '$idCombate', '$minuto', '$color', '$tecnica', '$situacion')";
-    ejecutar($sqlRegistro);
+    $Ok *= ejecutar($sqlRegistro);
   }
 
-  echo "El combate ha sido registrado correctamente.";
+  echo $Ok;
   ?>
   <a class="btn btn-light" href='historial'> <span class="glyphicon glyphicon-home"></span> Regresar </a>
   <?php
@@ -106,32 +110,34 @@ function LoadKarateca($LoadKarateca){
   //header('Content-type: application/json');
   $SQLWEB="SELECT * FROM KARATECAS WHERE ID = '$LoadKarateca'";
   $row = seleccionar_una($SQLWEB);  
+  $row = array_map('utf8_encode', $row);
   $DATA = $row;
 
   //TODO: Calcular Estadísticas
   $DATA['Estadisticas'] = "Calculadas aparte";
 
-  echo json_encode($DATA);
+  echoJSON($DATA);
 }
 
-function grabarKarateca() {
-    // Obtener las variables recibidas por POST
-    $ID = $_POST['ID'];
-    $dni = $_POST['dni'];
-    $nombre = $_POST['nombre'];
-    $fechaNacimiento = $_POST['fecha_nacimiento'];
-    $telefono = $_POST['telefono'];
-    $sexo = $_POST['sexo'];
-    $cinturon = $_POST['cinturon'];
+function GrabarKarateca($Data) {
+    global $ID_CLUB;
+    extract($Data);
     
     if ($ID=='NEW'){
-      $sql = "INSERT INTO `KARATECAS`(`ID`, `ID_CLUB`, `DNI`, `NOMBRE`, `FECHA_NACIMIENTO`, `TELEFONO`, `SEXO`, `CINTURON`) VALUES (NULL, '$ID_CLUB', '$dni', '$nombre', '$fechaNacimiento', '$telefono', '$sexo', '$cinturon')";
+      $sql = "INSERT INTO `KARATECAS`(`ID`, `ID_CLUB`, `DNI`, `NOMBRE`, `FECHA_NACIMIENTO`, `TELEFONO`, `SEXO`, `CINTURON`) VALUES (NULL, '$ID_CLUB', '$DNI', '$NOMBRE', '$FECHA_NACIMIENTO', '$TELEFONO', '$SEXO', '$CINTURON')";
       
-    }else{
+    } else {
       $sql = "UPDATE `KARATECAS` 
-              set DNI='$dni', NOMBRE='$nombre', FECHA_NACIMIENTO='$fechaNacimiento', TELEFONO='$telefono', SEXO='$sexo', CINTURON='$cinturon' 
-              WHERE ID='$ID'";
+                SET DNI='$DNI', NOMBRE='$NOMBRE', FECHA_NACIMIENTO='$FECHA_NACIMIENTO', TELEFONO='$TELEFONO', SEXO='$SEXO', CINTURON='$CINTURON' 
+                WHERE ID='$ID'";
     }
-    ejecutar($sql);
+    if (ejecutar($sql)){
+      echo "1";
+
+    }else{
+      global $db;
+      echo $db->error;
+
+    }
 }
 ?>

@@ -88,7 +88,7 @@
 
     <!-- Opciones y Hajime/Yame -->
     <div class="row">
-      <div class="col-3"> <div class="btn btn-evento" onclick="SalirDelCombate()"> <span class="glyphicon glyphicon-ok-sign"></span> </div> </div>
+      <div class="col-3"> <div class="btn btn-evento" onclick="SalirDelCombate()"> <span class="glyphicon glyphicon-off"></span> </div> </div>
       <div class="col-6"> <div id="btn-timer" class="btn btn-evento" onclick="startStopCountdown()">¡Hajime!</div> </div>
       <div class="col-3"> <div class="btn btn-evento" onclick="eliminarLinea()"> <span class="glyphicon glyphicon-step-backward"></span> </div> </div>
     </div>

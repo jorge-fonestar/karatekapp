@@ -204,30 +204,19 @@ function eliminarLinea(){
 }
 
 function GrabarCombate(){
-  // Crear el formulario invisible
-  var form = $("<form>", { method: 'post'});
 
-  // Agregar las variables al formulario
-  form.append($("<input>", { type: "text", name: "grabarCombate", value: '1' }));
+  LoadingOn();
 
-  form.append($("<input>", { type: "text", name: "IdTorneo", value: $("#IdTorneo").val() }));
-  form.append($("<input>", { type: "text", name: "Ronda", value: $("#Ronda").val() }));
-  form.append($("<input>", { type: "text", name: "NombreAO", value: $("#NombreAO").val() }));
-  form.append($("<input>", { type: "text", name: "NombreAKA", value: $("#NombreAKA").val() }));
-  form.append($("<input>", { type: "text", name: "PuntosAO", value: $("#marcador-AO").html() }));
-  form.append($("<input>", { type: "text", name: "PuntosAKA", value: $("#marcador-AKA").html() }));
-  
+  // Enviamos los datos para grabar
+
   // Sensu
   let sensu = document.getElementById('sensu-AO').classList.contains('bg-warning') ? 'AO' : 'AKA';
-  form.append($("<input>", { type: "text", name: "sensu", value: sensu }));
 
   // Hantei (Preguntar solo si hay empate?)
   let hantei = '';
-  form.append($("<input>", { type: "text", name: "hantei", value: hantei }));
 
-  // Agregamos los registros
+  // Lista de Registros
   var registros = [];
-
   $('#registros').children().each(function() {
     var $linea = $(this);
     
@@ -249,17 +238,41 @@ function GrabarCombate(){
     };
     
     registros.push(registro);
-
-    //nav('combates');
   });
 
-  var registrosJSON = JSON.stringify(registros);
-  form.append($("<input>", { type: "text", name: "RegistrosJSON", value: registrosJSON}));
-  
-  
-  $("body").append(form);
 
-  // Enviamos
-  form.submit();
+  var Data = {
+    IdTorneo: $("#IdTorneo").val(),
+    Ronda: $("#Ronda").val(),
+    NombreAO: $("#NombreAO").val(),
+    NombreAKA: $("#NombreAKA").val(),
+    PuntosAO: $("#marcador-AO").html(),
+    PuntosAKA: $("#marcador-AKA").html(),
+    Sensu:sensu,
+    Hantei:hantei,
+    Registros: registros
+  };
+
+  // Realizar la función de grabado aquí
+  $.post("AJAX", {GrabarCombate: true, Data: Data})
+    .done(function(response) {
+      var Msg;
+      if (response!='1') {
+        Msg = response; 
+        tipo = 'error';
+      }else{
+        Msg = "Se han grabado los datos correctamente";
+        tipo = 'success';
+      }
+      loadHistorial();
+      LoadingOff();
+      Alerta(Msg, 5000, tipo);
+      
+    })
+    .fail(function(xhr, status, error) {
+      LoadingOff();
+      Alerta(error, 5000, tipo='error');
+
+    });
 
 }

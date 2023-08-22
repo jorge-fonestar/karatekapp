@@ -69,7 +69,7 @@ body,html{
   }
 
   #Alert{
-    padding-top: 60px !important;
+    margin-top: 60px !important;
   }
 }
 
@@ -137,10 +137,10 @@ body,html{
   100% { transform: rotate(360deg); }
 }
 
-#Alert{display:none}
-.alert-error{background-color: rgb(50, 0, 0); color: white;}
-.alert-info{background-color: rgb(0, 0, 50); color: white;}
-.alert-success{background-color: rgb(0, 50, 0); color: white;}
+#Alert{display:none;justify-content: center; align-items: center;  background-color: black; width: 600px; margin:auto; border:solid; padding:10px}
+.alert-error{color: white;}
+.alert-info{color: white;}
+.alert-success{color: green;}
 #x-de-pega{float: right;}
 
 
@@ -184,18 +184,12 @@ ln-valor{width: 50%; float:left; height:32px;}
   margin: 5px 0px;
 }
 
-.btn-evento {
-  color: #fff;
-  border-color: #fff;
-  margin: 5px 0px;
-  width: 100%;
-}
-
-.btn-evento:hover {
-  color: #fff;
-}
-
 .form-check-input {position: relative !important;}
+
+.valid-name {
+  color: green !important;
+  font-weight: bold;
+}
 
 .btn-modal{
   border-color: #000;
@@ -204,10 +198,11 @@ ln-valor{width: 50%; float:left; height:32px;}
   margin: 5px 0px;
 }
 
-
+.form{text-align: left !important;}
 .left{float:left !important}
 .right{float:right !important}
 .clickable{cursor:pointer !important;}
+.fullwidth{width:100% !important}
 
 .ao {color: #007bff}
 .aka {color: #dc3545}
