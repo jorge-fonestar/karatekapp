@@ -146,28 +146,60 @@ function loadHistorial(){
 
 
 /////////      Karatekas      /////////
-  var nombresKaratecas = ["Iván", "Carlos", "María", "Juan", "Luis"];
+var nombresKaratecas = ["Iván", "Carlos", "María", "Juan", "Luis"];
 
-  function loadKaratecas(){
-      $.post("AJAX", {ListadoKaratecas: true}, function (response) {
-      var json = JSON.parse(response);
-      if (json){
-          // Actualizar los valores en la instancia de Vue
-          karatecas.karatecas = json;
+function loadKaratecas(){
+    $.post("AJAX", {ListadoKaratecas: true}, function (response) {
+    var json = JSON.parse(response);
+    if (json){
+        // Actualizar los valores en la instancia de Vue
+        karatecas.karatecas = json;
 
-          // Actualizar el autocompletado
-          nombresKaratecas = [];
-          for (let i = 0; i < json.length; i++) {
-            nombresKaratecas.push(json[i].NOMBRE); // Asegúrate de ajustar esta línea para obtener el nombre correctamente
-          }
-         
-          $(".autocomplete-karateca").autocomplete({
-            source: nombresKaratecas
-          });
-      }
-      }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
-  }
-  
-  
+        // Actualizar el autocompletado
+        nombresKaratecas = [];
+        for (let i = 0; i < json.length; i++) {
+          nombresKaratecas.push(json[i].NOMBRE); // Asegúrate de ajustar esta línea para obtener el nombre correctamente
+        }
+       
+        $(".autocomplete-karateca").autocomplete({
+          source: nombresKaratecas
+        });
+    }
+    }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
+}
+
+
 
 ////////////////////////////////////////
+
+
+
+
+
+
+
+/////////      Torneos      /////////
+function loadTorneos(){
+    $.post("AJAX", {ListadoTorneos: true}, function (response) {
+    var json = JSON.parse(response);
+    if (json){
+        // Actualizar los valores en la instancia de Vue
+        torneos.torneos = json;
+
+        // Actualizamos el Select de la definicion de nuevo combate
+        var select = $("#IdTorneo");
+
+        select.empty();
+        select.append(new Option("ENTRENAMIENTO / NO OFICIAL", 0));
+        console.log(json);
+
+        for (var i = 0; i < json.length; i++) {
+          select.append(new Option(json[i].NOMBRE, json[i].ID));
+        }
+        
+        // Actualizar cualquier componente de terceros que maneje el select
+        // Por ejemplo, si estás utilizando algún plugin de selección personalizada
+        select.trigger("chosen:updated");
+    }
+    }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
+}////////////////////////////////////////

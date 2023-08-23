@@ -20,6 +20,8 @@ function db_conectar(){
     if($db->connect_errno > 0){
         die("Unable to connect to database mysqli(Server: $db_server, BDD: $db_bdd) -> [" . $db->connect_error . ']');
     }
+
+    $db->set_charset("utf8mb4");
     
     return $db;
 }

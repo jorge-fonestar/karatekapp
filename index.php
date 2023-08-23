@@ -114,6 +114,7 @@ if (!$sesion->empezada()){
             <div id='combate' class='content'><?php include "UI/combate.php";?></div>
 
         <div id='torneos' class='content'><?php include "UI/torneos.php";?></div>
+            <div id='torneo' class='content'><?php include "UI/torneo.php";?></div>
 
         <div id='perfil' class='content'><?php include "UI/perfil.php";?></div>
 
