@@ -232,11 +232,13 @@ ln-valor{width: 50%; float:left; height:32px;}
 
 .form-check-input {position: relative !important;}
 
+/* 
 .valid-name {
-  /* color: green !important; */
-  /* font-weight: bold; */
+  color: green !important;
+  font-weight: bold;
 }
-
+ */
+ 
 .btn-modal{
   border-color: #000;
   font-size: 24px;

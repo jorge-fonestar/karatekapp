@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SERVER_PORT }}
-        script: |
-          cd /ruta/a/tu/proyecto
+        script:
+          cd /public_html/serviyorch.es/karatekapp
           git pull origin master
           rsync -avz --exclude="config.php" * "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH"
