@@ -73,7 +73,6 @@ var karateca = new Vue({
         CINTURON: this.CINTURON
       };
 
-      // Realizar la función de grabado aquí
       $.post("AJAX", {GrabarKarateca: true, Data: Data})
         .done(function(response) {
           var Msg;
@@ -88,6 +87,34 @@ var karateca = new Vue({
           LoadingOff();
           Alerta(Msg, 5000, tipo);
           // Restablecer la propiedad edited a false después de grabar
+          
+        })
+        .fail(function(xhr, status, error) {
+          LoadingOff();
+          Alerta(error, 5000, tipo='error');
+
+        });
+      
+    },
+
+    delKarateca: function() {
+      LoadingOn();
+
+      $.post("AJAX", {BorrarKarateca: this.ID})
+        .done(function(response) {
+          var Msg;
+          if (response!='1') {
+            Msg = response; 
+            tipo = 'error';
+          }else{
+            Msg = "Se ha borrado el registro correctamente";
+            tipo = 'success';
+          }
+          karateca.Cambios = false;
+          LoadingOff();
+          Alerta(Msg, 5000, tipo);
+          loadKaratecas();
+          nav("karatecas");
           
         })
         .fail(function(xhr, status, error) {
@@ -155,7 +182,7 @@ var torneos = new Vue({
         }else{Alerta("Hay un error en el contenido", 5000, 'error')}
         LoadingOff();
       }).fail(function (xhr, status, error) { Alerta(xhr.status + " " + error, 5000, 'error'); LoadingOff(); });
-    } 
+    }
     
   }
 });
@@ -210,6 +237,34 @@ var torneo = new Vue({
           Alerta(error, 5000, tipo='error');
 
         });
+    },
+
+
+    delTorneo: function() {
+      LoadingOn();
+
+      $.post("AJAX", {BorrarTorneo: this.ID})
+        .done(function(response) {
+          var Msg;
+          if (response!='1') {
+            Msg = response; 
+            tipo = 'error';
+          }else{
+            Msg = "Se ha borrado el registro correctamente";
+            tipo = 'success';
+          }
+          karateca.Cambios = false;
+          LoadingOff();
+          Alerta(Msg, 5000, tipo);
+          loadTorneos();
+          nav("torneos");
+          
+        })
+        .fail(function(xhr, status, error) {
+          LoadingOff();
+          Alerta(error, 5000, tipo='error');
+        });
+      
     },
   }
 });

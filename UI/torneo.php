@@ -39,5 +39,6 @@
     <input type="text" class="form-control" v-model="PESO" @input="setEdited">
   </div>
 
+  <button class="btn btn-light left" @click="delTorneo" v-if="ID !== 'NEW'"><i class="fa-solid fa-trash"></i>  Borrar</button>
   <button class="btn btn-light right" @click="saveTorneo" v-if="Cambios"><i class="fa-solid fa-cloud-arrow-up"></i>  Guardar cambios</button>
 </div>

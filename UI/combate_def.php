@@ -35,12 +35,18 @@ Torneo<br>
 </div>
 
 
-
-
 Nombre AO<br>
-<input type='text' id='NombreAO' class='autocomplete-karateca' style='width:100%'><br><br>
+<div class="input-group" style='width:100%'>
+  <input type="text" id="NombreAO" class="autocomplete-karateca ui-autocomplete-input" style="width: calc(100% - 45px);" autocomplete="off">
+  <button id="btnSelectAO" class="btn btn-desplegar" type="button"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+</div><br><br>
+
 
 Nombre AKA<br>
-<input type='text' id='NombreAKA' class='autocomplete-karateca' style='width:100%'><br><br>
+<div class="input-group" style='width:100%'>
+  <input type="text" id="NombreAKA" class="autocomplete-karateca ui-autocomplete-input" style="width: calc(100% - 45px);" autocomplete="off">
+  <button id="btnSelectAKA" class="btn btn-desplegar" type="button"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+</div><br><br>
+
 
 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='ComenzarCombate()'>¡Comenzar!</button>

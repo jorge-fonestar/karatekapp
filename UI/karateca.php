@@ -58,5 +58,6 @@
     </select>
   </div>
 
+  <button class="btn btn-light left" @click="delKarateca" v-if="ID !== 'NEW'"><i class="fa-solid fa-trash"></i>  Borrar</button>
   <button class="btn btn-light right" @click="saveKarateca" v-if="Cambios"><i class="fa-solid fa-cloud-arrow-up"></i>  Guardar cambios</button>
 </div>

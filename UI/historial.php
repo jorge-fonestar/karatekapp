@@ -6,7 +6,7 @@
     <div class="card-header">
       {{ combate.FECHA }} <span style="font-size: 16px;">({{ combate.HORA }})</span>
     </div>
-    <div class="card-body text-light">
+    <div class="card-body">
       <div class="row">
         <div class="col-xs-4">
           <h5 class="card-title ao">{{ combate.AO }}</h5>

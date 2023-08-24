@@ -9,11 +9,13 @@ if (isset($GrabarCombate)) GrabarCombate($Data);
 if (isset($ListadoKaratecas)) ListadoKaratecas();
 if (isset($LoadKarateca)) LoadKarateca($LoadKarateca);
 if (isset($GrabarKarateca)) GrabarKarateca($Data);
+if (isset($BorrarKarateca)) BorrarKarateca($BorrarKarateca);
 
 // Torneos
 if (isset($ListadoTorneos)) ListadoTorneos();
 if (isset($LoadTorneo)) LoadTorneo($LoadTorneo);
 if (isset($GrabarTorneo)) GrabarTorneo($Data);
+if (isset($BorrarTorneo)) BorrarTorneo($BorrarTorneo);
 
 
 
@@ -149,6 +151,20 @@ function GrabarKarateca($Data) {
     }
 }
 
+function BorrarKarateca($ID) {
+  extract($Data);
+  
+  $sql = "DELETE FROM `KARATECAS` WHERE ID='$ID'";
+  if (ejecutar($sql)){
+    echo "1";
+
+  }else{
+    global $db;
+    echo $db->error;
+
+  }
+}
+
 
 
 ############ TORNEOS ############
@@ -199,5 +215,18 @@ function GrabarTorneo($Data) {
     }
 }
 
+function BorrarTorneo($ID) {
+  extract($Data);
+  
+  $sql = "DELETE FROM `TORNEOS` WHERE ID='$ID'";
+  if (ejecutar($sql)){
+    echo "1";
+
+  }else{
+    global $db;
+    echo $db->error;
+
+  }
+}
 
 ?>

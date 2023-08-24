@@ -18,6 +18,7 @@ body,html{
   background-color: #000000;
   color:#fff;
   /* overflow: hidden; */
+  padding: 5px;
   padding-bottom: 80px; /* Para el menu */
 }
 .content {
@@ -178,12 +179,39 @@ input, select{
 .left{float:left !important}
 .right{float:right !important}
 
-
-.card-body{color:#000 !important; padding: 0.1rem !important;}
+.card {
+  height: calc(115% - 65px);
+}
 .card-header {
   padding: 0.1rem !important;
   font-size: 22px;
+  color: white;
 }
+.card-body{
+  color: white; 
+  padding: 0.1rem !important;
+}
+
+.card-prices{
+   margin-bottom: 20px;  
+}
+.card-prices .card{
+  border-radius: 20px;
+  margin-bottom: 20px;  
+  cursor:pointer;
+}
+.card-prices .card:hover{ border:solid red}
+  
+.card-prices .card-header{
+  padding: 15px !important;
+  border-radius: 20px 20px 0px 0px;
+}
+.card-prices .card-body{
+  padding: 15px !important;
+  
+}
+
+
 
 ln-titulo{width: 50%; float:left; margin-top: 3px;}
 ln-valor{width: 50%; float:left; height:32px;}
@@ -205,8 +233,8 @@ ln-valor{width: 50%; float:left; height:32px;}
 .form-check-input {position: relative !important;}
 
 .valid-name {
-  color: green !important;
-  font-weight: bold;
+  /* color: green !important; */
+  /* font-weight: bold; */
 }
 
 .btn-modal{
@@ -214,6 +242,12 @@ ln-valor{width: 50%; float:left; height:32px;}
   font-size: 24px;
   width: 100%;
   margin: 5px 0px;
+}
+
+.btn-desplegar{
+  color: black;
+  height: 40px;
+  transform: translateY(-5px);
 }
 
 .form{text-align: left !important;}

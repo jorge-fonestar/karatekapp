@@ -7,9 +7,18 @@ $(document).ready(function() {
 
   $(".autocomplete-karateca").autocomplete({
     source: nombresKaratecas,
+    minLength: 0,
     select: function(event, ui) {
       validarNombreKarateca($(this));
     }
+  });
+
+  $("#btnSelectAO").click(function() {
+    $("#NombreAO").autocomplete("search", "").focus(); 
+  });
+
+  $("#btnSelectAKA").click(function() {
+    $("#NombreAKA").autocomplete("search", "").focus();
   });
 
   nav("historial");
