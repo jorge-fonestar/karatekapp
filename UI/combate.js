@@ -267,7 +267,7 @@ function GrabarCombate(){
       loadHistorial();
       LoadingOff();
       Alerta(Msg, 5000, tipo);
-      nav("historial");
+      nav('historial', $('#mnu-hist'));
       
     })
     .fail(function(xhr, status, error) {

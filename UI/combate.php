@@ -161,7 +161,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <!-- Botones -->
-          <div class="btn btn-modal" onclick="GrabarCombate()">Grabar el combate</div> <br>
+          <div class="btn btn-modal" onclick="GrabarCombate()" data-dismiss="modal">Grabar el combate</div> <br>
           <div class="btn btn-modal" onclick="nav('historial', $('#mnu-hist'))" data-dismiss="modal">Salir sin grabar</div> <br>
           
         </div>

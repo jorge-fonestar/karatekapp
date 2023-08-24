@@ -21,6 +21,9 @@ $(document).ready(function() {
     $("#NombreAKA").autocomplete("search", "").focus();
   });
 
+  $("#btnSelectSrch").click(function() {
+    $("#srchNombre").autocomplete("search", "").focus();
+  });
   nav("historial");
 });
 

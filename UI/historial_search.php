@@ -4,7 +4,11 @@
 
 
     Nombre karateca<br>
-    <input id='srchNombre' type='text' name='Nombre' style='width:100%' class='autocomplete-karateca'><br><br>
+    <div class="input-group" style='width:100%'>
+        <input type="text" id="srchNombre" class="autocomplete-karateca ui-autocomplete-input" style="width: calc(100% - 45px);" autocomplete="off">
+        <button id="btnSelectSrch" class="btn btn-desplegar" type="button"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+    </div><br><br>
+
 
 
     Fechas entre<br>
