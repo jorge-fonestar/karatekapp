@@ -253,7 +253,7 @@ function GrabarCombate(){
     Registros: registros
   };
 
-  // Realizar la función de grabado aquí
+  // Realizar la función de grabado
   $.post("AJAX", {GrabarCombate: true, Data: Data})
     .done(function(response) {
       var Msg;
@@ -267,6 +267,7 @@ function GrabarCombate(){
       loadHistorial();
       LoadingOff();
       Alerta(Msg, 5000, tipo);
+      nav("historial");
       
     })
     .fail(function(xhr, status, error) {

@@ -22,7 +22,7 @@ if (isset($BorrarTorneo)) BorrarTorneo($BorrarTorneo);
 
 ############ COMBATES ############
 
-function loadHistorial($filtros=''){
+function loadHistorial($filtros=array()){
   global $ID_CLUB;
   extract($filtros);
   if ($Nombre!='') $FILTROS .= " AND (AO like '%$Nombre%' or AKA like '%$Nombre%')";
@@ -55,24 +55,17 @@ function GrabarCombate($Data){
   $Ok = 1;
 
   // Obtener las variables recibidas por POST
-  $idTorneo = $Data['IdTorneo'];
-  $ronda = $Data['Ronda'];
-  $nombreAO = $Data['NombreAO'];
-  $nombreAKA = $Data['NombreAKA'];
-  $puntosAO = $Data['PuntosAO'];
-  $puntosAKA = $Data['PuntosAKA'];
-  $sensu = $Data['Sensu'];
-  $registros = $Data['Registros'];
+  extract($Data);
   
   // Crear la consulta INSERT
   $sql = "INSERT INTO `COMBATES`(`ID`, `ID_CLUB`, `ID_TORNEO`, `RONDA`, `AO`, `AKA`, `PUNTOS_AO`, `PUNTOS_AKA`, `SENSU`, `HANTEI`) 
-               VALUES (NULL, '$ID_CLUB', '$idTorneo', '$ronda', '$nombreAO', '$nombreAKA', '$puntosAO', '$puntosAKA', '$sensu', '$hantei')";
+               VALUES (NULL, '$ID_CLUB', '$IdTorneo', '$Ronda', '$NombreAO', '$NombreAKA', '$PuntosAO', '$PuntosAKA', '$Sensu', '$Hantei')";
   $Ok *= ejecutar($sql);
 
   $idCombate = mysqli_insert_id($db);
   
   // Crear una consulta INSERT para cada registro de la array
-  foreach ($registros as $registro) {
+  foreach ($Registros as $registro) {
     $minuto = $registro['minuto'];
     $color = $registro['color'];
     $tecnica = $registro['tecnica'];
